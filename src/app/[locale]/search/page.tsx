@@ -31,6 +31,20 @@ import {
 import { AdvancedSearch } from '@/components/search/AdvancedSearch'
 import { Link } from '@/i18n/routing'
 
+// Search filters interface
+interface SearchFilters {
+  query: string
+  category: string
+  location: string
+  priceRange: [number, number]
+  duration: string
+  groupSize: string
+  rating: number
+  availability: string
+  intensity: string
+  includes: string[]
+}
+
 // Sample search results (this would come from your API)
 const sampleResults = [
   {
@@ -107,11 +121,11 @@ function SearchPageContent() {
   // const t = useTranslations()
   
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  const [searchFilters, setSearchFilters] = useState({
+  const [searchFilters, setSearchFilters] = useState<SearchFilters>({
     query: searchParams.get('q') || '',
     category: searchParams.get('category') || 'all',
     location: searchParams.get('location') || 'All Locations',
-    priceRange: [0, 5000] as [number, number],
+    priceRange: [0, 5000],
     duration: 'any',
     groupSize: 'any',
     rating: 0,
@@ -126,7 +140,7 @@ function SearchPageContent() {
   const [isLoading, setIsLoading] = useState(false)
 
   // Simulate search API call
-  const performSearch = async (filters: typeof searchFilters) => {
+  const performSearch = async (filters: SearchFilters) => {
     setIsLoading(true)
     
     // Simulate API delay
@@ -159,7 +173,7 @@ function SearchPageContent() {
     setIsLoading(false)
   }
 
-  const handleSearch = (filters: typeof searchFilters) => {
+  const handleSearch = (filters: SearchFilters) => {
     setSearchFilters(filters)
     performSearch(filters)
   }
