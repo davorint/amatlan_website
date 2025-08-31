@@ -116,9 +116,9 @@ export default function RetreatsPage() {
   const [selectedCategory, setSelectedCategory] = useState('all')
   const heroRef = useRef<HTMLDivElement>(null)
   // const { ref: contentRef, inView } = useInView({
-    threshold: 0.1,
-    triggerOnce: true
-  })
+  //   threshold: 0.1,
+  //   triggerOnce: true
+  // })
   
   const { scrollY } = useScroll()
   // const y = useTransform(scrollY, [0, 500], [0, 150])
