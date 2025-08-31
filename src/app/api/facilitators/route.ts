@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { prisma } from '@/lib/prisma'
+import { SubscriptionPlan } from '@prisma/client'
 import { z } from 'zod'
 
 const createFacilitatorSchema = z.object({
@@ -25,10 +26,10 @@ export async function GET(request: NextRequest) {
 
     const where: {
       verified?: boolean
-      subscriptionPlan?: string
+      subscriptionPlan?: SubscriptionPlan
     } = {}
     if (verified !== null) where.verified = verified === 'true'
-    if (subscriptionPlan) where.subscriptionPlan = subscriptionPlan
+    if (subscriptionPlan) where.subscriptionPlan = subscriptionPlan as SubscriptionPlan
 
     const facilitators = await prisma.facilitator.findMany({
       where,
