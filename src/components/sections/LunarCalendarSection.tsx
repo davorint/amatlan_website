@@ -85,7 +85,7 @@ const getMoonPhase = (date: Date, t: (key: string) => string): { phase: string; 
 
 // Get next important lunar dates
 const getUpcomingLunarEvents = (startDate: Date, t: (key: string) => string): Array<{ date: Date; phase: string; name: string }> => {
-  const events = []
+  const events: Array<{ date: Date; phase: string; name: string }> = []
   const checkDate = new Date(startDate)
   
   for (let i = 0; i < 60; i++) { // Check next 60 days

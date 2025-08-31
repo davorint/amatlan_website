@@ -352,7 +352,7 @@ export function AdvancedSearch({
                 <div className="px-4">
                   <Slider
                     value={filters.priceRange}
-                    onValueChange={(value: number[]) => handleFilterChange('priceRange', value)}
+                    onValueChange={(value: number[]) => handleFilterChange('priceRange', value as [number, number])}
                     min={0}
                     max={5000}
                     step={50}

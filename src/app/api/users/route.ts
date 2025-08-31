@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { prisma } from '@/lib/prisma'
+import { UserRole } from '@prisma/client'
 
 // GET /api/users - List users (admin only)
 export async function GET(request: NextRequest) {
@@ -22,10 +23,10 @@ export async function GET(request: NextRequest) {
     const limit = parseInt(searchParams.get('limit') || '20')
 
     const where: {
-      role?: string
+      role?: UserRole
       facilitator?: { verified: boolean }
     } = {}
-    if (role) where.role = role
+    if (role) where.role = role as UserRole
     if (verified !== null) where.facilitator = { verified: verified === 'true' }
 
     const users = await prisma.user.findMany({
