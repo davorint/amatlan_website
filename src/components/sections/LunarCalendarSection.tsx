@@ -7,7 +7,7 @@ import { Button } from '@/components/ui/button'
 import { useTranslations, useLocale } from 'next-intl'
 
 // Moon phase calculations
-const getMoonPhase = (date: Date, t: any): { phase: string; illumination: number; emoji: string; name: string; description: string } => {
+const getMoonPhase = (date: Date, t: (key: string) => string): { phase: string; illumination: number; emoji: string; name: string; description: string } => {
   // Calculate days since new moon (January 6, 2000)
   const baseNewMoon = new Date(2000, 0, 6)
   const lunarCycle = 29.53058867 // days
@@ -84,7 +84,7 @@ const getMoonPhase = (date: Date, t: any): { phase: string; illumination: number
 }
 
 // Get next important lunar dates
-const getUpcomingLunarEvents = (startDate: Date, t: any): Array<{ date: Date; phase: string; name: string }> => {
+const getUpcomingLunarEvents = (startDate: Date, t: (key: string) => string): Array<{ date: Date; phase: string; name: string }> => {
   const events = []
   const checkDate = new Date(startDate)
   
