@@ -24,7 +24,8 @@ import {
   Sparkles,
   Wind,
   Flame,
-  Leaf
+  Leaf,
+  Sun
 } from 'lucide-react'
 
 // Fixed positions for consistent rendering
