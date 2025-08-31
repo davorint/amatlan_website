@@ -27,11 +27,11 @@ export async function GET(request: NextRequest) {
     const where: {
       userId?: string
       experienceId?: string
-      status?: string
+      status?: 'PENDING' | 'CONFIRMED' | 'CANCELLED' | 'COMPLETED'
     } = {}
     if (userId) where.userId = userId
     if (experienceId) where.experienceId = experienceId
-    if (status) where.status = status
+    if (status) where.status = status as 'PENDING' | 'CONFIRMED' | 'CANCELLED' | 'COMPLETED'
 
     const bookings = await prisma.booking.findMany({
       where,

@@ -22,7 +22,8 @@ import {
   Globe,
   Eye,
   Flame,
-  Clock
+  Clock,
+  Leaf
 } from 'lucide-react'
 
 // Fixed positions for consistent rendering

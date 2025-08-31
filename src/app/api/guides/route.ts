@@ -30,8 +30,8 @@ export async function GET(request: NextRequest) {
     const limit = parseInt(searchParams.get('limit') || '10')
 
     const where: {
-      category?: string
-      difficulty?: string
+      category?: 'MEDITATION' | 'CEREMONY' | 'HEALING' | 'NATURE' | 'CULTURE' | 'PREPARATION'
+      difficulty?: 'BEGINNER' | 'INTERMEDIATE' | 'ADVANCED'
       featured?: boolean
       published?: boolean
       tags?: { hasSome: string[] }
@@ -42,8 +42,8 @@ export async function GET(request: NextRequest) {
       }>
     } = {}
     
-    if (category) where.category = category
-    if (difficulty) where.difficulty = difficulty
+    if (category) where.category = category as 'MEDITATION' | 'CEREMONY' | 'HEALING' | 'NATURE' | 'CULTURE' | 'PREPARATION'
+    if (difficulty) where.difficulty = difficulty as 'BEGINNER' | 'INTERMEDIATE' | 'ADVANCED'
     if (featured !== null) where.featured = featured === 'true'
     if (published !== null) where.published = published === 'true'
     if (tags?.length) where.tags = { hasSome: tags }

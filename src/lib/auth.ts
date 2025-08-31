@@ -20,7 +20,7 @@ export function verifyToken(token: string): AuthUser | null {
     return {
       userId: decoded.userId,
       email: decoded.email,
-      role: decoded.role,
+      role: decoded.role as 'VISITOR' | 'FACILITATOR' | 'ADMIN',
     }
   } catch {
     return null

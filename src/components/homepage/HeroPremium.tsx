@@ -9,6 +9,7 @@ import { Search, MapPin, Sparkles, Wind, Leaf, Sun } from 'lucide-react'
 import { motion, useScroll, useTransform } from 'framer-motion'
 import { Canvas } from '@react-three/fiber'
 import { OrbitControls, Sphere, MeshDistortMaterial, Float } from '@react-three/drei'
+import * as THREE from 'three'
 import { useInView } from 'react-intersection-observer'
 import gsap from 'gsap'
 import { useGSAP } from '@gsap/react'
@@ -313,7 +314,7 @@ export function HeroPremium() {
               { href: '/temazcales', label: t('exploreTemazcales'), icon: Wind, color: 'from-earth-brown to-sacred-copper' },
               { href: '/retreats', label: t('viewRetreats'), icon: Leaf, color: 'from-nature-green to-water-blue' },
               { href: '/healers', label: t('findHealers'), icon: Sun, color: 'from-spiritual-gold to-sunset-orange' }
-            ].map((item, _index) => (
+            ].map((item) => (
               <motion.div
                 key={item.href}
                 className="action-button"

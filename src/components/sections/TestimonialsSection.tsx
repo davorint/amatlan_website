@@ -3,11 +3,11 @@
 import { motion } from "motion/react"
 import { Star, Quote, Heart, Sparkles } from "lucide-react"
 import { useState } from "react"
-import { useTranslations } from 'next-intl'
+// import { useTranslations } from 'next-intl'
 
 export function TestimonialsSection() {
   const [activeTestimonial, setActiveTestimonial] = useState(0)
-  const t = useTranslations('Testimonials')
+  // const t = useTranslations('Testimonials')
 
   const testimonials = [
     {
@@ -75,15 +75,15 @@ export function TestimonialsSection() {
         >
           <div className="inline-flex items-center space-x-2 mb-6 px-4 py-2 crystal-panel rounded-full">
             <Heart className="w-4 h-4 text-[var(--color-prism-rose)]" />
-            <span className="text-sm font-medium text-white/90">{t('badge')}</span>
+            <span className="text-sm font-medium text-white/90">Sacred Testimonials</span>
           </div>
           
           <h2 className="text-4xl md:text-6xl font-bold mb-6">
-            <span className="text-kinetic">{t('title')}</span>
+            <span className="text-kinetic">Transformations</span>
           </h2>
           
           <p className="text-xl text-white/70 max-w-3xl mx-auto">
-            {t('description')}
+            Real stories from souls transformed through sacred experiences in Amatlán
           </p>
         </motion.div>
 
@@ -188,10 +188,10 @@ export function TestimonialsSection() {
           className="grid grid-cols-1 md:grid-cols-4 gap-8 crystal-panel p-8"
         >
           {[
-            { value: "4.9/5", label: t('stats.averageRating'), icon: Star },
-            { value: "2,500+", label: t('stats.transformedLives'), icon: Heart },
-            { value: "98%", label: t('stats.lifeChangingExperiences'), icon: Sparkles },
-            { value: "50+", label: t('stats.countriesRepresented'), icon: Quote }
+            { value: "4.9/5", label: 'Average Rating', icon: Star },
+            { value: "2,500+", label: 'Transformed Lives', icon: Heart },
+            { value: "98%", label: 'Life-Changing Experiences', icon: Sparkles },
+            { value: "50+", label: 'Countries Represented', icon: Quote }
           ].map((stat, index) => (
             <motion.div
               key={stat.label}

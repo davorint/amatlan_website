@@ -5,10 +5,6 @@ import { getMessages } from 'next-intl/server'
 import { routing } from '@/i18n/routing'
 import { notFound } from 'next/navigation'
 import "../globals.css";
-import { HeaderPremium } from "@/components/layout/HeaderPremium";
-import { FooterPremium } from "@/components/layout/FooterPremium";
-import { LoadingScreen } from "@/components/layout/LoadingScreen";
-import { ClientLayout } from "@/components/layout/ClientLayout";
 
 export const viewport = {
   width: "device-width",
@@ -66,32 +62,26 @@ export default async function RootLayout({
     <html lang={locale} className={`${inter.variable} ${jetbrainsMono.variable}`}>
       <body className="antialiased">
         <NextIntlClientProvider messages={messages}>
-          <ClientLayout fontVariables={`${inter.variable} ${jetbrainsMono.variable}`}>
-            <LoadingScreen />
-            <div className="min-h-screen flex flex-col relative">
-              {/* Ambient background layers */}
-              <div className="fixed inset-0 -z-10">
-                {/* Primary gradient backdrop */}
-                <div className="absolute inset-0 bg-gradient-to-br from-slate-900 via-slate-800 to-slate-700" />
-                
-                {/* Prismatic accent overlay */}
-                <div className="absolute inset-0 opacity-20">
-                  <div className="absolute top-1/4 -left-1/4 w-96 h-96 bg-orange-500 rounded-full blur-3xl" />
-                  <div className="absolute bottom-1/3 -right-1/4 w-80 h-80 bg-amber-500 rounded-full blur-3xl" />
-                  <div className="absolute top-3/4 left-1/3 w-64 h-64 bg-rose-500 rounded-full blur-3xl" />
-                </div>
-                
-                {/* Texture overlay */}
-                <div className="absolute inset-0 opacity-30 bg-[url('data:image/svg+xml,%3Csvg%20width%3D%2260%22%20height%3D%2260%22%20viewBox%3D%220%200%2060%2060%22%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%3E%3Cg%20fill%3D%22none%22%20fill-rule%3D%22evenodd%22%3E%3Cg%20fill%3D%22%23ffffff%22%20fill-opacity%3D%220.1%22%3E%3Ccircle%20cx%3D%227%22%20cy%3D%227%22%20r%3D%221%22/%3E%3Ccircle%20cx%3D%2227%22%20cy%3D%2227%22%20r%3D%221%22/%3E%3Ccircle%20cx%3D%2247%22%20cy%3D%2247%22%20r%3D%221%22/%3E%3C/g%3E%3C/g%3E%3C/svg%3E')]" />
+          <div className="min-h-screen flex flex-col relative">
+            {/* Background */}
+            <div className="fixed inset-0 -z-10 bg-gradient-to-br from-slate-900 via-slate-800 to-slate-700" />
+            
+            {/* Header placeholder */}
+            <header className="p-4 border-b border-white/10">
+              <div className="container mx-auto">
+                <h1 className="text-2xl font-bold text-white">Magic Amatlán</h1>
               </div>
-              
-              <HeaderPremium />
-              <main className="flex-1">
-                {children}
-              </main>
-              <FooterPremium />
-            </div>
-          </ClientLayout>
+            </header>
+            
+            <main className="flex-1">
+              {children}
+            </main>
+            
+            {/* Footer placeholder */}
+            <footer className="p-4 border-t border-white/10 text-center text-white/60">
+              <p>&copy; 2024 Magic Amatlán. All rights reserved.</p>
+            </footer>
+          </div>
         </NextIntlClientProvider>
       </body>
     </html>

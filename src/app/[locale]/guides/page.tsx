@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from 'react'
 // import { useTranslations } from 'next-intl'
-import { motion, useScroll, useTransform } from 'framer-motion'
+import { motion, useScroll, useTransform, AnimatePresence } from 'framer-motion'
 import { useInView } from 'react-intersection-observer'
 // import { Card } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
@@ -23,7 +23,9 @@ import {
   Eye,
   Sparkles,
   Wind,
-  Flame
+  Flame,
+  Leaf,
+  Sun
 } from 'lucide-react'
 
 // Fixed positions for consistent rendering

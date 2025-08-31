@@ -1,9 +1,10 @@
 'use client'
 
 import { useState } from 'react'
-import { useParams } from 'next/navigation'
+// import { useParams } from 'next/navigation'
 import { motion } from 'framer-motion'
-import { useTranslations } from 'next-intl'
+import Image from 'next/image'
+// import { useTranslations } from 'next-intl'
 import { 
   Calendar, 
   Clock, 
@@ -223,10 +224,11 @@ export default function TemazcalDetailPage() {
                 className="relative"
               >
                 <div className="aspect-[4/3] rounded-2xl overflow-hidden shadow-2xl">
-                  <img
+                  <Image
                     src={sampleTemazcal.images[selectedImage]}
                     alt={sampleTemazcal.title}
-                    className="w-full h-full object-cover"
+                    fill
+                    className="object-cover"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
                   <div className="absolute top-4 right-4">
@@ -253,10 +255,11 @@ export default function TemazcalDetailPage() {
                           : 'hover:scale-102 opacity-70 hover:opacity-100'
                       }`}
                     >
-                      <img
+                      <Image
                         src={image}
                         alt={`${sampleTemazcal.title} ${index + 1}`}
-                        className="w-full h-full object-cover"
+                        fill
+                        className="object-cover"
                       />
                     </button>
                   ))}

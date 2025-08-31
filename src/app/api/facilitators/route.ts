@@ -25,10 +25,10 @@ export async function GET(request: NextRequest) {
 
     const where: {
       verified?: boolean
-      subscriptionPlan?: string
+      subscriptionPlan?: 'FREE' | 'BASIC' | 'PREMIUM'
     } = {}
     if (verified !== null) where.verified = verified === 'true'
-    if (subscriptionPlan) where.subscriptionPlan = subscriptionPlan
+    if (subscriptionPlan) where.subscriptionPlan = subscriptionPlan as 'FREE' | 'BASIC' | 'PREMIUM'
 
     const facilitators = await prisma.facilitator.findMany({
       where,

@@ -22,10 +22,10 @@ export async function GET(request: NextRequest) {
     const limit = parseInt(searchParams.get('limit') || '20')
 
     const where: {
-      role?: string
+      role?: 'VISITOR' | 'FACILITATOR' | 'ADMIN'
       facilitator?: { verified: boolean }
     } = {}
-    if (role) where.role = role
+    if (role) where.role = role as 'VISITOR' | 'FACILITATOR' | 'ADMIN'
     if (verified !== null) where.facilitator = { verified: verified === 'true' }
 
     const users = await prisma.user.findMany({

@@ -3,7 +3,8 @@
 import { useState, Suspense } from 'react'
 import { useSearchParams } from 'next/navigation'
 import { motion, AnimatePresence } from 'framer-motion'
-import { useTranslations } from 'next-intl'
+import Image from 'next/image'
+// import { useTranslations } from 'next-intl'
 import { 
   Search, 
   MapPin, 
@@ -28,7 +29,6 @@ import {
   SelectValue 
 } from '@/components/ui/select'
 import { AdvancedSearch } from '@/components/search/AdvancedSearch'
-import { Link } from '@/i18n/routing'
 
 // Sample search results (this would come from your API)
 const sampleResults = [
@@ -116,7 +116,7 @@ function SearchPageContent() {
     rating: 0,
     availability: 'any',
     intensity: 'any',
-    includes: []
+    includes: [] as string[]
   })
   
   const [results, setResults] = useState(sampleResults)
@@ -337,10 +337,11 @@ function SearchPageContent() {
                         <>
                           {/* Grid View */}
                           <div className="aspect-[4/3] relative overflow-hidden">
-                            <img
+                            <Image
                               src={experience.image}
                               alt={experience.title}
-                              className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                              fill
+                              className="object-cover group-hover:scale-105 transition-transform duration-500"
                             />
                             <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
                             <div className="absolute top-4 left-4">
@@ -412,10 +413,10 @@ function SearchPageContent() {
                                 className="flex-1 border-white/20 text-white hover:bg-white/10"
                                 asChild
                               >
-                                <Link href={`/${experience.category.toLowerCase()}s/${experience.id}` as string}>
+                                <a href={`/${experience.category.toLowerCase()}s/${experience.id}`}>
                                   <Eye className="w-4 h-4 mr-2" />
                                   View Details
-                                </Link>
+                                </a>
                               </Button>
                               <Button
                                 size="sm"
@@ -432,10 +433,11 @@ function SearchPageContent() {
                           {/* List View */}
                           <div className="w-48 flex-shrink-0">
                             <div className="aspect-[4/3] relative overflow-hidden rounded-xl">
-                              <img
+                              <Image
                                 src={experience.image}
                                 alt={experience.title}
-                                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                                fill
+                                className="object-cover group-hover:scale-105 transition-transform duration-500"
                               />
                               <div className="absolute top-2 left-2">
                                 <Badge className={`bg-gradient-to-r ${
@@ -514,10 +516,10 @@ function SearchPageContent() {
                                   className="border-white/20 text-white hover:bg-white/10"
                                   asChild
                                 >
-                                  <Link href={`/${experience.category.toLowerCase()}s/${experience.id}` as string}>
+                                  <a href={`/${experience.category.toLowerCase()}s/${experience.id}`}>
                                     <Eye className="w-4 h-4 mr-2" />
                                     View Details
-                                  </Link>
+                                  </a>
                                 </Button>
                                 <Button className="bg-gradient-to-r from-orange-500 to-amber-500 hover:from-orange-600 hover:to-amber-600 text-white">
                                   <Calendar className="w-4 h-4 mr-2" />

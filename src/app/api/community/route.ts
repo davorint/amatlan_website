@@ -23,14 +23,14 @@ export async function GET(request: NextRequest) {
     const limit = parseInt(searchParams.get('limit') || '10')
 
     const where: {
-      type?: string
+      type?: 'DISCUSSION' | 'STORY' | 'QUESTION' | 'GUIDE'
       featured?: boolean
       published?: boolean
       tags?: { hasSome: string[] }
       userId?: string
     } = {}
     
-    if (type) where.type = type
+    if (type) where.type = type as 'DISCUSSION' | 'STORY' | 'QUESTION' | 'GUIDE'
     if (featured !== null) where.featured = featured === 'true'
     if (published !== null) where.published = published === 'true'
     if (tags?.length) where.tags = { hasSome: tags }
