@@ -7,17 +7,12 @@ import {
   Heart, 
   Mountain, 
   Sun, 
-  Moon, 
   Star,
   Flame,
-  Leaf,
   Compass,
   Shield,
-  Award,
   Users,
-  Globe,
   TreePine,
-  Waves,
   Feather
 } from 'lucide-react'
 import { Button } from '@/components/ui/button'
@@ -95,7 +90,7 @@ const stats = [
 ]
 
 export default function AboutPage() {
-  const t = useTranslations()
+  // const t = useTranslations()
 
   return (
     <div className="min-h-screen">
