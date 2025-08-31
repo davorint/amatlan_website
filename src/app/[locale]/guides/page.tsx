@@ -23,7 +23,8 @@ import {
   Eye,
   Sparkles,
   Wind,
-  Flame
+  Flame,
+  Leaf
 } from 'lucide-react'
 
 // Fixed positions for consistent rendering
