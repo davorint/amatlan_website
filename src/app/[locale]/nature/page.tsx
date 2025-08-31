@@ -5,7 +5,7 @@ import { Link } from '@/i18n/routing'
 import { Card, CardContent, CardHeader } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
 import { Badge } from '@/components/ui/badge'
-import { MapPin, Star, Clock, Users, Mountain, TreePine, Compass, Camera, Binoculars, Footprints } from 'lucide-react'
+import { MapPin, Star, Clock, Users, Mountain, TreePine, Compass, Camera, Binoculars } from 'lucide-react'
 import { motion, useScroll, useTransform } from 'framer-motion'
 import { useInView } from 'react-intersection-observer'
 import { useRef } from 'react'
@@ -155,7 +155,7 @@ const difficultyColors = {
 }
 
 export default function NaturePage() {
-  const t = useTranslations('Nature')
+  // const t = useTranslations('Nature')
   const tCommon = useTranslations('Common')
   const heroRef = useRef<HTMLDivElement>(null)
   const { ref: contentRef, inView } = useInView({

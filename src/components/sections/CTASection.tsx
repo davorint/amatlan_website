@@ -7,7 +7,7 @@ import { useTranslations } from 'next-intl'
 
 export function CTASection() {
   const t = useTranslations('CTA')
-  const tCommon = useTranslations('Common')
+  // const tCommon = useTranslations('Common')
   return (
     <section className="py-24 relative">
       <div className="container mx-auto px-4">

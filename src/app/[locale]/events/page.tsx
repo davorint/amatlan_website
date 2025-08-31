@@ -5,7 +5,7 @@ import { Link } from '@/i18n/routing'
 import { Card, CardContent, CardHeader } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
 import { Badge } from '@/components/ui/badge'
-import { MapPin, Star, Clock, Users, Calendar, Sparkles, Wind, Sun, Moon, Heart, Zap, Quote, Filter, ArrowRight, Globe, Camera, Music } from 'lucide-react'
+import { MapPin, Star, Clock, Users, Calendar, Sparkles, Wind, Sun, Moon, Heart, Filter, ArrowRight, Globe, Music } from 'lucide-react'
 import { motion, useScroll, useTransform, AnimatePresence } from 'framer-motion'
 import { useInView } from 'react-intersection-observer'
 import { useRef, useState, useEffect, Suspense } from 'react'
@@ -327,8 +327,8 @@ const eventsData = [
 ]
 
 export default function EventsPage() {
-  const t = useTranslations('Events')
-  const tCommon = useTranslations('Common')
+  // const t = useTranslations('Events')
+  // const tCommon = useTranslations('Common')
   const [selectedCategory, setSelectedCategory] = useState<string>('all')
   const [selectedMonth, setSelectedMonth] = useState<string>('all')
   const [timeOfDay, setTimeOfDay] = useState<'dawn' | 'day' | 'dusk' | 'night'>('day')
@@ -410,15 +410,15 @@ export default function EventsPage() {
     { value: '5', label: 'Junio' }
   ]
 
-  const formatDate = (dateString: string) => {
-    const date = new Date(dateString)
-    return date.toLocaleDateString('es-ES', { 
-      weekday: 'long', 
-      year: 'numeric', 
-      month: 'long', 
-      day: 'numeric' 
-    })
-  }
+  // const formatDate = (dateString: string) => {
+  //   const date = new Date(dateString)
+  //   return date.toLocaleDateString('es-ES', { 
+  //     weekday: 'long', 
+  //     year: 'numeric', 
+  //     month: 'long', 
+  //     day: 'numeric' 
+  //   })
+  // }
 
   const getAvailableSpots = (capacity: number, attendees: number) => {
     return capacity - attendees

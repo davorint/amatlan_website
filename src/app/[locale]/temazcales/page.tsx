@@ -5,8 +5,8 @@ import { Link } from '@/i18n/routing'
 import { Card, CardContent, CardHeader } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
 import { Badge } from '@/components/ui/badge'
-import { MapPin, Star, Clock, Users, Flame, Sparkles, Wind, Sun, Moon, Heart, Zap, Quote, Filter } from 'lucide-react'
-import { motion, useScroll, useTransform, AnimatePresence } from 'framer-motion'
+import { MapPin, Star, Clock, Users, Flame, Sparkles, Wind, Sun, Moon, Heart, Quote, Filter } from 'lucide-react'
+import { motion, useScroll, useTransform } from 'framer-motion'
 import { useInView } from 'react-intersection-observer'
 import { useRef, useState, useEffect, Suspense } from 'react'
 import { Canvas } from '@react-three/fiber'
@@ -231,8 +231,8 @@ const temazcalExperiences = [
 ]
 
 export default function TemazcalesPage() {
-  const t = useTranslations('Temazcales')
-  const tCommon = useTranslations('Common')
+  // const t = useTranslations('Temazcales')
+  // const tCommon = useTranslations('Common')
   const [selectedCategory, setSelectedCategory] = useState<string>('all')
   const [timeOfDay, setTimeOfDay] = useState<'dawn' | 'day' | 'dusk' | 'night'>('day')
   const [isHeroLoaded, setIsHeroLoaded] = useState(false)

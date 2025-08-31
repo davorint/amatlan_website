@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 import { useParams } from 'next/navigation'
 import { motion } from 'framer-motion'
 import { useTranslations } from 'next-intl'
@@ -15,11 +15,9 @@ import {
   Sparkles,
   Flame,
   Leaf,
-  Moon,
   Sun,
   Camera,
   Shield,
-  Award,
   CheckCircle,
   ArrowRight,
   MessageCircle
@@ -98,8 +96,8 @@ const sampleTemazcal = {
 }
 
 export default function TemazcalDetailPage() {
-  const params = useParams()
-  const t = useTranslations()
+  // const params = useParams()
+  // const t = useTranslations()
   const [selectedImage, setSelectedImage] = useState(0)
   const [isFavorited, setIsFavorited] = useState(false)
   const [activeTab, setActiveTab] = useState('overview')

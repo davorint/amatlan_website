@@ -1,22 +1,20 @@
 'use client'
 
-import { useState, useEffect, useRef } from 'react'
-import { useTranslations } from 'next-intl'
-import { motion, useScroll, useTransform, AnimatePresence } from 'framer-motion'
+import { useState, useEffect } from 'react'
+// import { useTranslations } from 'next-intl'
+import { motion, useScroll, useTransform } from 'framer-motion'
 import { useInView } from 'react-intersection-observer'
-import { Card } from '@/components/ui/card'
+// import { Card } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Badge } from '@/components/ui/badge'
 import { 
   Book, 
-  Search, 
-  Filter,
+  Search,
   BookOpen,
   Compass,
   Star,
   Clock,
-  User,
   ArrowRight,
   Play,
   Download,
@@ -24,15 +22,8 @@ import {
   Share,
   Eye,
   Sparkles,
-  Leaf,
-  Sun,
-  Moon,
   Wind,
-  Flame,
-  Mountain,
-  Waves,
-  TreePine,
-  Feather
+  Flame
 } from 'lucide-react'
 
 // Fixed positions for consistent rendering

@@ -1,20 +1,17 @@
 'use client'
 
-import { useState, useEffect, Suspense } from 'react'
+import { useState, Suspense } from 'react'
 import { useSearchParams } from 'next/navigation'
 import { motion, AnimatePresence } from 'framer-motion'
 import { useTranslations } from 'next-intl'
 import { 
   Search, 
-  Filter, 
   MapPin, 
   Star, 
   Clock, 
   Users,
   Heart,
-  BookOpen,
   Sparkles,
-  TrendingUp,
   Grid,
   List,
   SortAsc,
@@ -106,7 +103,7 @@ const sortOptions = [
 
 function SearchPageContent() {
   const searchParams = useSearchParams()
-  const t = useTranslations()
+  // const t = useTranslations()
   
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [searchFilters, setSearchFilters] = useState({

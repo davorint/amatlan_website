@@ -5,8 +5,8 @@ import { Link } from '@/i18n/routing'
 import { Card, CardContent, CardHeader } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
 import { Badge } from '@/components/ui/badge'
-import { MapPin, Star, Phone, Mail, Heart, Sparkles, Sun, Moon, Eye, Hand, Zap } from 'lucide-react'
-import { motion, useScroll, useTransform, AnimatePresence } from 'motion/react'
+import { MapPin, Star, Phone, Mail, Heart, Sparkles, Sun, Eye, Hand, Zap } from 'lucide-react'
+import { motion, useScroll, useTransform } from 'motion/react'
 import { useInView } from 'react-intersection-observer'
 import { useRef, useState } from 'react'
 
@@ -162,18 +162,18 @@ const specialtyIcons = {
 }
 
 export default function HealersPage() {
-  const t = useTranslations('Healers')
+  // const t = useTranslations('Healers')
   const tCommon = useTranslations('Common')
-  const [selectedSpecialty, setSelectedSpecialty] = useState('all')
+  // const [selectedSpecialty, setSelectedSpecialty] = useState('all')
   const heroRef = useRef<HTMLDivElement>(null)
-  const { ref: contentRef, inView } = useInView({
-    threshold: 0.1,
-    triggerOnce: true
-  })
+  // const { ref: contentRef, inView } = useInView({
+  //   threshold: 0.1,
+  //   triggerOnce: true
+  // })
   
   const { scrollY } = useScroll()
-  const y = useTransform(scrollY, [0, 500], [0, 150])
-  const opacity = useTransform(scrollY, [0, 300], [1, 0])
+  // const y = useTransform(scrollY, [0, 500], [0, 150])
+  // const opacity = useTransform(scrollY, [0, 300], [1, 0])
   const scale = useTransform(scrollY, [0, 300], [1, 0.95])
   const blur = useTransform(scrollY, [0, 300], [0, 8])
 

@@ -5,15 +5,10 @@ import { motion } from 'framer-motion'
 import { useTranslations } from 'next-intl'
 import { 
   Mail, 
-  Phone, 
   MapPin, 
   Clock, 
   Send,
-  Sparkles,
   Heart,
-  Star,
-  Moon,
-  Sun,
   MessageCircle,
   Calendar,
   Globe,
@@ -92,7 +87,7 @@ const inquiryTypes = [
 ]
 
 export default function ContactPage() {
-  const t = useTranslations()
+  // const t = useTranslations()
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -389,7 +384,7 @@ export default function ContactPage() {
                 </h3>
                 
                 <div className="space-y-6">
-                  {contactMethods.map((method, index) => {
+                  {contactMethods.map((method, _index) => {
                     const Icon = method.icon
                     return (
                       <div key={method.title} className="group">

@@ -4,7 +4,6 @@ import { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { 
   Search, 
-  Filter, 
   MapPin, 
   Calendar, 
   Users, 

@@ -1,10 +1,10 @@
 'use client'
 
-import { useState, useEffect, useRef } from 'react'
-import { useTranslations } from 'next-intl'
-import { motion, useScroll, useTransform, AnimatePresence } from 'framer-motion'
+import { useState, useEffect } from 'react'
+// import { useTranslations } from 'next-intl'
+import { motion, useScroll, useTransform } from 'framer-motion'
 import { useInView } from 'react-intersection-observer'
-import { Card } from '@/components/ui/card'
+// import { Card } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Textarea } from '@/components/ui/textarea'
@@ -13,7 +13,6 @@ import {
   Users, 
   Heart, 
   Sparkles, 
-  MessageCircle, 
   Calendar, 
   MapPin,
   Star,
@@ -21,12 +20,7 @@ import {
   Send,
   UserPlus,
   Globe,
-  Wind,
-  Leaf,
-  Sun,
-  Moon,
   Eye,
-  Zap,
   Flame,
   Clock
 } from 'lucide-react'
@@ -462,7 +456,7 @@ function MemberTypesSection() {
 // Featured Members Section
 function FeaturedMembersSection() {
   const { ref, inView } = useInView({ threshold: 0.2, triggerOnce: true })
-  const [currentMember, setCurrentMember] = useState(0)
+  // const [currentMember, setCurrentMember] = useState(0)
 
   return (
     <section ref={ref} className="relative py-24 bg-gradient-to-b from-gray-950 to-black overflow-hidden">
