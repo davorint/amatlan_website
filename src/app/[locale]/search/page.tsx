@@ -18,6 +18,7 @@ import {
   Eye,
   Calendar
 } from 'lucide-react'
+import Image from 'next/image'
 import { Button } from '@/components/ui/button'
 import { Badge } from '@/components/ui/badge'
 import { 
@@ -337,10 +338,11 @@ function SearchPageContent() {
                         <>
                           {/* Grid View */}
                           <div className="aspect-[4/3] relative overflow-hidden">
-                            <img
+                            <Image
                               src={experience.image}
                               alt={experience.title}
-                              className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                              fill
+                              className="object-cover group-hover:scale-105 transition-transform duration-500"
                             />
                             <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
                             <div className="absolute top-4 left-4">
@@ -432,10 +434,11 @@ function SearchPageContent() {
                           {/* List View */}
                           <div className="w-48 flex-shrink-0">
                             <div className="aspect-[4/3] relative overflow-hidden rounded-xl">
-                              <img
+                              <Image
                                 src={experience.image}
                                 alt={experience.title}
-                                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                                fill
+                                className="object-cover group-hover:scale-105 transition-transform duration-500"
                               />
                               <div className="absolute top-2 left-2">
                                 <Badge className={`bg-gradient-to-r ${

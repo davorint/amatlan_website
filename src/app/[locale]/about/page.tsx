@@ -15,6 +15,7 @@ import {
   TreePine,
   Feather
 } from 'lucide-react'
+import Image from 'next/image'
 import { Button } from '@/components/ui/button'
 import { Badge } from '@/components/ui/badge'
 import { Link } from '@/i18n/routing'
@@ -164,11 +165,12 @@ export default function AboutPage() {
                 transition={{ duration: 0.6 }}
               >
                 <div className="relative">
-                  <div className="aspect-[4/3] rounded-2xl overflow-hidden shadow-2xl">
-                    <img 
+                  <div className="aspect-[4/3] rounded-2xl overflow-hidden shadow-2xl relative">
+                    <Image 
                       src="/images/amatlan-sacred-site.jpg"
                       alt="Sacred Amatlán Landscape"
-                      className="w-full h-full object-cover"
+                      fill
+                      className="object-cover"
                     />
                   </div>
                   <div className="absolute -bottom-6 -right-6 w-24 h-24 bg-gradient-to-br from-orange-500 to-amber-500 rounded-full flex items-center justify-center shadow-2xl">
@@ -353,11 +355,12 @@ export default function AboutPage() {
                 >
                   <div className="bg-white/5 backdrop-blur-sm rounded-2xl p-8 border border-white/10 hover:border-white/20 transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl h-full">
                     <div className="relative mb-6">
-                      <div className="aspect-square rounded-2xl overflow-hidden">
-                        <img 
+                      <div className="aspect-square rounded-2xl overflow-hidden relative">
+                        <Image 
                           src={member.image}
                           alt={member.name}
-                          className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                          fill
+                          className="object-cover group-hover:scale-105 transition-transform duration-500"
                         />
                       </div>
                       <div className="absolute -bottom-4 left-1/2 -translate-x-1/2 w-16 h-8 bg-gradient-to-r from-orange-500 to-amber-500 rounded-full flex items-center justify-center">

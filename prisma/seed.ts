@@ -8,7 +8,7 @@ async function main() {
 
   // Create admin user
   const hashedPassword = await bcrypt.hash('admin123', 12)
-  const adminUser = await prisma.user.upsert({
+  await prisma.user.upsert({
     where: { email: 'admin@magicamatlan.com' },
     update: {},
     create: {
@@ -174,7 +174,7 @@ async function main() {
   })
 
   // Create sample event
-  const event = await prisma.event.create({
+  await prisma.event.create({
     data: {
       title: 'Ceremonia de Equinoccio de Primavera',
       slug: 'ceremonia-equinoccio-primavera-2025',

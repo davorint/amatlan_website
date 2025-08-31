@@ -1,13 +1,11 @@
 'use client'
 
-import { useTranslations } from 'next-intl'
 import { Link } from '@/i18n/routing'
 import { Card, CardContent, CardHeader } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
 import { Badge } from '@/components/ui/badge'
-import { MapPin, Star, Users, Calendar, Leaf, Heart, Mountain, Sparkles, Play, ArrowRight, Sun, Moon } from 'lucide-react'
+import { MapPin, Star, Users, Calendar, Leaf, Heart, Mountain, Sparkles, Play, ArrowRight } from 'lucide-react'
 import { motion, useScroll, useTransform, AnimatePresence } from 'motion/react'
-import { useInView } from 'react-intersection-observer'
 import { useRef, useState } from 'react'
 
 // Mock data - will be replaced with database queries
