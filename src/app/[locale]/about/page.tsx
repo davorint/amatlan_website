@@ -217,8 +217,8 @@ export default function AboutPage() {
 
                 <div className="mt-8 p-6 bg-gradient-to-r from-orange-500/10 to-amber-500/10 rounded-2xl border border-orange-500/20">
                   <blockquote className="text-lg italic text-orange-200 mb-4">
-                    "The ancestors whispered: 'Build bridges of light between the ancient ways and modern hearts, 
-                    for in this union lies the healing of both the individual and the world.'"
+                    &ldquo;The ancestors whispered: &lsquo;Build bridges of light between the ancient ways and modern hearts, 
+                    for in this union lies the healing of both the individual and the world.&rsquo;&rdquo;
                   </blockquote>
                   <cite className="text-amber-400 font-medium">— Vision received by María Elena Coatlicue</cite>
                 </div>

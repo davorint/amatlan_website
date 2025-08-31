@@ -16,10 +16,10 @@ export async function GET(request: NextRequest) {
     const token = authHeader.substring(7)
 
     // Verify JWT token
-    let decoded: any
+    let decoded: { userId: string }
     try {
-      decoded = jwt.verify(token, process.env.JWT_SECRET || 'fallback-secret')
-    } catch (error) {
+      decoded = jwt.verify(token, process.env.JWT_SECRET || 'fallback-secret') as { userId: string }
+    } catch {
       return NextResponse.json(
         { error: 'Invalid or expired token' },
         { status: 401 }

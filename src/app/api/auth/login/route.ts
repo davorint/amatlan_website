@@ -63,7 +63,8 @@ export async function POST(request: NextRequest) {
     )
 
     // Return user data without password
-    const { password: _, ...userWithoutPassword } = user
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+    const { password: _password, ...userWithoutPassword } = user
 
     return NextResponse.json({
       success: true,
@@ -72,7 +73,7 @@ export async function POST(request: NextRequest) {
       message: 'Login successful'
     })
 
-  } catch (error) {
+  } catch (error: unknown) {
     console.error('Login error:', error)
     return NextResponse.json(
       { error: 'Internal server error during login' },

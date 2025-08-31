@@ -22,7 +22,13 @@ export async function GET(request: NextRequest) {
     const page = parseInt(searchParams.get('page') || '1')
     const limit = parseInt(searchParams.get('limit') || '10')
 
-    const where: any = {}
+    const where: {
+      type?: string
+      featured?: boolean
+      published?: boolean
+      tags?: { hasSome: string[] }
+      userId?: string
+    } = {}
     
     if (type) where.type = type
     if (featured !== null) where.featured = featured === 'true'
@@ -67,7 +73,7 @@ export async function GET(request: NextRequest) {
       }
     })
 
-  } catch (error) {
+  } catch (error: unknown) {
     console.error('Get community posts error:', error)
     return NextResponse.json(
       { error: 'Internal server error' },
@@ -136,7 +142,7 @@ export async function POST(request: NextRequest) {
       message: 'Community post created successfully'
     }, { status: 201 })
 
-  } catch (error) {
+  } catch (error: unknown) {
     console.error('Create community post error:', error)
     return NextResponse.json(
       { error: 'Internal server error' },

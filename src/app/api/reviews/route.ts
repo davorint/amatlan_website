@@ -20,7 +20,11 @@ export async function GET(request: NextRequest) {
     const limit = parseInt(searchParams.get('limit') || '10')
     const verified = searchParams.get('verified')
 
-    const where: any = {}
+    const where: {
+      experienceId?: string
+      userId?: string
+      verified?: boolean
+    } = {}
     if (experienceId) where.experienceId = experienceId
     if (userId) where.userId = userId
     if (verified !== null) where.verified = verified === 'true'
@@ -61,7 +65,7 @@ export async function GET(request: NextRequest) {
       }
     })
 
-  } catch (error) {
+  } catch (error: unknown) {
     console.error('Get reviews error:', error)
     return NextResponse.json(
       { error: 'Internal server error' },
@@ -160,7 +164,7 @@ export async function POST(request: NextRequest) {
       message: 'Review created successfully'
     }, { status: 201 })
 
-  } catch (error) {
+  } catch (error: unknown) {
     console.error('Create review error:', error)
     return NextResponse.json(
       { error: 'Internal server error' },

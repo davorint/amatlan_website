@@ -32,7 +32,12 @@ export async function GET(
       )
     }
 
-    const where: any = { experienceId: params.id }
+    const where: {
+      experienceId: string
+      active?: boolean
+      startTime?: { gte: Date }
+      OR?: Array<{ maxCapacity: null } | { AND: Array<{ maxCapacity: { not: null }; currentCount: { lt: { maxCapacity: boolean } } }> }>
+    } = { experienceId: params.id }
     
     if (active !== null) where.active = active === 'true'
     
@@ -75,7 +80,7 @@ export async function GET(
       sessions
     })
 
-  } catch (error) {
+  } catch (error: unknown) {
     console.error('Get experience sessions error:', error)
     return NextResponse.json(
       { error: 'Internal server error' },
@@ -188,7 +193,7 @@ export async function POST(
       message: 'Session created successfully'
     }, { status: 201 })
 
-  } catch (error) {
+  } catch (error: unknown) {
     console.error('Create session error:', error)
     return NextResponse.json(
       { error: 'Internal server error' },

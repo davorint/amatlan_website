@@ -242,7 +242,7 @@ export default function EcoStaysPage() {
               animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.8, delay: 0.2 }}
             >
-              Sustainable accommodations that harmonize luxury with environmental responsibility in nature's embrace
+              Sustainable accommodations that harmonize luxury with environmental responsibility in nature&rsquo;s embrace
             </motion.p>
 
             <motion.div 
@@ -435,7 +435,7 @@ export default function EcoStaysPage() {
                 Committed to Mother Earth
               </h2>
               <div className="space-y-4 text-white/90 text-lg">
-                <p>Our eco-stays are designed to minimize environmental impact while maximizing your connection to nature's healing power.</p>
+                <p>Our eco-stays are designed to minimize environmental impact while maximizing your connection to nature&rsquo;s healing power.</p>
                 <p>Each property uses renewable energy, sustainable materials, and regenerative practices that give back more than they take.</p>
                 <p>Experience luxury that aligns with your values and contributes to a healthier planet for future generations.</p>
               </div>

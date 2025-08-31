@@ -23,7 +23,10 @@ export async function GET(request: NextRequest) {
     const page = parseInt(searchParams.get('page') || '1')
     const limit = parseInt(searchParams.get('limit') || '20')
 
-    const where: any = {}
+    const where: {
+      verified?: boolean
+      subscriptionPlan?: string
+    } = {}
     if (verified !== null) where.verified = verified === 'true'
     if (subscriptionPlan) where.subscriptionPlan = subscriptionPlan
 
@@ -82,7 +85,7 @@ export async function GET(request: NextRequest) {
       }
     })
 
-  } catch (error) {
+  } catch (error: unknown) {
     console.error('Get facilitators error:', error)
     return NextResponse.json(
       { error: 'Internal server error' },
@@ -169,7 +172,7 @@ export async function POST(request: NextRequest) {
       message: 'Facilitator profile created successfully'
     }, { status: 201 })
 
-  } catch (error) {
+  } catch (error: unknown) {
     console.error('Create facilitator error:', error)
     return NextResponse.json(
       { error: 'Internal server error' },

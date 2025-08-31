@@ -52,7 +52,7 @@ function FloatingParticles() {
 
 // Animated background orb
 function AnimatedOrb() {
-  const meshRef = useRef<any>(null)
+  const meshRef = useRef<THREE.Mesh>(null)
   
   useEffect(() => {
     if (meshRef.current) {
@@ -320,7 +320,7 @@ export function HeroPremium() {
                 whileHover={{ scale: 1.05, y: -5 }}
                 whileTap={{ scale: 0.95 }}
               >
-                <Link href={item.href as any}>
+                <Link href={item.href as '/temazcales' | '/retreats' | '/healers'}>
                   <Button 
                     size="lg"
                     className="glass-button group relative overflow-hidden rounded-xl px-8 py-4 text-white font-medium"

@@ -362,7 +362,7 @@ export default function RetreatsPage() {
             </h2>
             
             <p className="text-xl md:text-2xl text-white/70 max-w-4xl mx-auto leading-relaxed font-light">
-              Each retreat is a carefully crafted journey combining ancient wisdom, modern healing techniques, and transformative experiences in Mexico's most sacred spaces.
+              Each retreat is a carefully crafted journey combining ancient wisdom, modern healing techniques, and transformative experiences in Mexico&rsquo;s most sacred spaces.
             </p>
           </motion.div>
 

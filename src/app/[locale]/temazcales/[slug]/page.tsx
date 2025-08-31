@@ -321,7 +321,7 @@ export default function TemazcalDetailPage() {
                   </div>
 
                   <div className="bg-white/5 backdrop-blur-sm rounded-2xl p-8 border border-white/10">
-                    <h4 className="text-xl font-bold text-white mb-6">What's Included</h4>
+                    <h4 className="text-xl font-bold text-white mb-6">What&rsquo;s Included</h4>
                     <ul className="space-y-3 mb-8">
                       {sampleTemazcal.includes.map((item, index) => (
                         <li key={index} className="flex items-start space-x-3">

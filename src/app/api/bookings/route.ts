@@ -24,7 +24,11 @@ export async function GET(request: NextRequest) {
     const page = parseInt(searchParams.get('page') || '1')
     const limit = parseInt(searchParams.get('limit') || '10')
 
-    const where: any = {}
+    const where: {
+      userId?: string
+      experienceId?: string
+      status?: string
+    } = {}
     if (userId) where.userId = userId
     if (experienceId) where.experienceId = experienceId
     if (status) where.status = status
@@ -73,7 +77,7 @@ export async function GET(request: NextRequest) {
       }
     })
 
-  } catch (error) {
+  } catch (error: unknown) {
     console.error('Get bookings error:', error)
     return NextResponse.json(
       { error: 'Internal server error' },
@@ -205,7 +209,7 @@ export async function POST(request: NextRequest) {
       message: 'Booking created successfully'
     }, { status: 201 })
 
-  } catch (error) {
+  } catch (error: unknown) {
     console.error('Create booking error:', error)
     return NextResponse.json(
       { error: 'Internal server error' },

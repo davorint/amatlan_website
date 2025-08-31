@@ -29,7 +29,18 @@ export async function GET(request: NextRequest) {
     const page = parseInt(searchParams.get('page') || '1')
     const limit = parseInt(searchParams.get('limit') || '10')
 
-    const where: any = {}
+    const where: {
+      category?: string
+      difficulty?: string
+      featured?: boolean
+      published?: boolean
+      tags?: { hasSome: string[] }
+      OR?: Array<{
+        title?: { contains: string; mode: 'insensitive' }
+        description?: { contains: string; mode: 'insensitive' }
+        content?: { contains: string; mode: 'insensitive' }
+      }>
+    } = {}
     
     if (category) where.category = category
     if (difficulty) where.difficulty = difficulty
@@ -85,7 +96,7 @@ export async function GET(request: NextRequest) {
       }
     })
 
-  } catch (error) {
+  } catch (error: unknown) {
     console.error('Get guides error:', error)
     return NextResponse.json(
       { error: 'Internal server error' },
@@ -165,7 +176,7 @@ export async function POST(request: NextRequest) {
       message: 'Guide created successfully'
     }, { status: 201 })
 
-  } catch (error) {
+  } catch (error: unknown) {
     console.error('Create guide error:', error)
     return NextResponse.json(
       { error: 'Internal server error' },

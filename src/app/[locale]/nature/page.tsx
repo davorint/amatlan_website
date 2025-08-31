@@ -252,7 +252,7 @@ export default function NaturePage() {
               animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.8, delay: 0.2 }}
             >
-              Immerse yourself in Amatlán's mystical landscapes through spiritual adventures and sacred site pilgrimages
+              Immerse yourself in Amatlán&rsquo;s mystical landscapes through spiritual adventures and sacred site pilgrimages
             </motion.p>
 
             <motion.div 
@@ -456,7 +456,7 @@ export default function NaturePage() {
                 Sacred Landscape Adventures
               </h2>
               <div className="space-y-4 text-white/90 text-lg">
-                <p>Amatlán's mystical landscape holds profound spiritual energy, from sacred mountains to healing waters and ancient ceremonial caves.</p>
+                <p>Amatlán&rsquo;s mystical landscape holds profound spiritual energy, from sacred mountains to healing waters and ancient ceremonial caves.</p>
                 <p>Our indigenous guides share generations of wisdom about these sacred sites, their energetic properties, and traditional practices.</p>
                 <p>Each adventure is designed to deepen your connection with nature while respecting the sacred traditions of this magical land.</p>
               </div>

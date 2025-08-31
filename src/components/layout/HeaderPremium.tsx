@@ -111,11 +111,11 @@ export function HeaderPremium() {
                 {['events', 'guides', 'community'].map((item) => (
                   <div key={item}>
                     <Link
-                      href={`/${item}` as any}
+                      href={`/${item}` as '/events' | '/guides' | '/community'}
                       className="block px-3 py-3 text-white/80 hover:text-white hover:bg-white/10 rounded-lg transition-all"
                       onClick={() => setMobileMenuOpen(false)}
                     >
-                      {t(item as any)}
+                      {t(item as 'events' | 'guides' | 'community')}
                     </Link>
                   </div>
                 ))}

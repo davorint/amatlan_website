@@ -49,7 +49,7 @@ function SacredFire() {
 
 // Mystical Orb Component
 function MysticalOrb() {
-  const meshRef = useRef<any>(null)
+  const meshRef = useRef<THREE.Mesh>(null)
   
   useEffect(() => {
     if (meshRef.current) {
@@ -829,7 +829,7 @@ export default function TemazcalesPage() {
                   viewport={{ once: true }}
                   transition={{ duration: 0.6, delay: 0.3 }}
                 >
-                  In the darkness of the lodge, illuminated only by the glow of sacred stones, you will confront your fears, release what no longer serves you, and emerge transformed—literally reborn from the Earth's womb.
+                  In the darkness of the lodge, illuminated only by the glow of sacred stones, you will confront your fears, release what no longer serves you, and emerge transformed—literally reborn from the Earth&rsquo;s womb.
                 </motion.p>
               </div>
               

@@ -81,7 +81,7 @@ function SacredElements() {
 
 // Celestial Orb Component
 function CelestialOrb() {
-  const meshRef = useRef<any>(null)
+  const meshRef = useRef<THREE.Mesh>(null)
   
   useEffect(() => {
     if (meshRef.current) {
@@ -1079,7 +1079,7 @@ export default function EventsPage() {
                   viewport={{ once: true }}
                   transition={{ duration: 0.6, delay: 0.1 }}
                 >
-                  Our events bring together souls from around the world in sacred ceremony and healing. Whether you're new to spiritual practices or a seasoned practitioner, you'll find your place in our inclusive community.
+                  Our events bring together souls from around the world in sacred ceremony and healing. Whether you&rsquo;re new to spiritual practices or a seasoned practitioner, you&rsquo;ll find your place in our inclusive community.
                 </motion.p>
                 
                 <motion.p

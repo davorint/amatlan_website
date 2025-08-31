@@ -33,7 +33,12 @@ export async function GET(request: NextRequest) {
     const page = parseInt(searchParams.get('page') || '1')
     const limit = parseInt(searchParams.get('limit') || '10')
 
-    const where: any = {}
+    const where: {
+      featured?: boolean
+      active?: boolean
+      tags?: { hasSome: string[] }
+      startDate?: { gte: Date }
+    } = {}
     
     if (featured !== null) where.featured = featured === 'true'
     if (active !== null) where.active = active === 'true'
@@ -78,7 +83,7 @@ export async function GET(request: NextRequest) {
       }
     })
 
-  } catch (error) {
+  } catch (error: unknown) {
     console.error('Get events error:', error)
     return NextResponse.json(
       { error: 'Internal server error' },
@@ -181,7 +186,7 @@ export async function POST(request: NextRequest) {
       message: 'Event created successfully'
     }, { status: 201 })
 
-  } catch (error) {
+  } catch (error: unknown) {
     console.error('Create event error:', error)
     return NextResponse.json(
       { error: 'Internal server error' },

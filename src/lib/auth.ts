@@ -12,13 +12,17 @@ export interface AuthUser {
  */
 export function verifyToken(token: string): AuthUser | null {
   try {
-    const decoded = jwt.verify(token, process.env.JWT_SECRET || 'fallback-secret') as any
+    const decoded = jwt.verify(token, process.env.JWT_SECRET || 'fallback-secret') as jwt.JwtPayload & {
+      userId: string
+      email: string
+      role: string
+    }
     return {
       userId: decoded.userId,
       email: decoded.email,
       role: decoded.role,
     }
-  } catch (error) {
+  } catch {
     return null
   }
 }
@@ -40,8 +44,8 @@ export function getUserFromRequest(request: NextRequest): AuthUser | null {
 /**
  * Middleware function to require authentication
  */
-export function requireAuth(handler: (request: NextRequest, user: AuthUser, ...args: any[]) => Promise<Response>) {
-  return async (request: NextRequest, ...args: any[]) => {
+export function requireAuth(handler: (request: NextRequest, user: AuthUser, ...args: unknown[]) => Promise<Response>) {
+  return async (request: NextRequest, ...args: unknown[]) => {
     const user = getUserFromRequest(request)
     
     if (!user) {
@@ -64,8 +68,8 @@ export function requireAuth(handler: (request: NextRequest, user: AuthUser, ...a
 export function requireRole(roles: string | string[]) {
   const allowedRoles = Array.isArray(roles) ? roles : [roles]
   
-  return function(handler: (request: NextRequest, user: AuthUser, ...args: any[]) => Promise<Response>) {
-    return async (request: NextRequest, ...args: any[]) => {
+  return function(handler: (request: NextRequest, user: AuthUser, ...args: unknown[]) => Promise<Response>) {
+    return async (request: NextRequest, ...args: unknown[]) => {
       const user = getUserFromRequest(request)
       
       if (!user) {

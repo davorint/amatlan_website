@@ -108,6 +108,7 @@ function SearchPageContent() {
   const searchParams = useSearchParams()
   const t = useTranslations()
   
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [searchFilters, setSearchFilters] = useState({
     query: searchParams.get('q') || '',
     category: searchParams.get('category') || 'all',
@@ -127,7 +128,7 @@ function SearchPageContent() {
   const [isLoading, setIsLoading] = useState(false)
 
   // Simulate search API call
-  const performSearch = async (filters: any) => {
+  const performSearch = async (filters: typeof searchFilters) => {
     setIsLoading(true)
     
     // Simulate API delay
@@ -160,7 +161,7 @@ function SearchPageContent() {
     setIsLoading(false)
   }
 
-  const handleSearch = (filters: any) => {
+  const handleSearch = (filters: typeof searchFilters) => {
     setSearchFilters(filters)
     performSearch(filters)
   }
@@ -414,7 +415,7 @@ function SearchPageContent() {
                                 className="flex-1 border-white/20 text-white hover:bg-white/10"
                                 asChild
                               >
-                                <Link href={`/${experience.category.toLowerCase()}s/${experience.id}` as any}>
+                                <Link href={`/${experience.category.toLowerCase()}s/${experience.id}` as string}>
                                   <Eye className="w-4 h-4 mr-2" />
                                   View Details
                                 </Link>
@@ -516,7 +517,7 @@ function SearchPageContent() {
                                   className="border-white/20 text-white hover:bg-white/10"
                                   asChild
                                 >
-                                  <Link href={`/${experience.category.toLowerCase()}s/${experience.id}` as any}>
+                                  <Link href={`/${experience.category.toLowerCase()}s/${experience.id}` as string}>
                                     <Eye className="w-4 h-4 mr-2" />
                                     View Details
                                   </Link>
@@ -551,7 +552,7 @@ function SearchPageContent() {
                   No Sacred Experiences Found
                 </h3>
                 <p className="text-white/70 mb-8 max-w-md mx-auto">
-                  We couldn't find any experiences matching your search. Try adjusting your filters or explore our featured offerings.
+                  We couldn&rsquo;t find any experiences matching your search. Try adjusting your filters or explore our featured offerings.
                 </p>
                 <Button 
                   className="bg-gradient-to-r from-orange-500 to-amber-500 hover:from-orange-600 hover:to-amber-600 text-white"

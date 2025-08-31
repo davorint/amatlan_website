@@ -135,7 +135,7 @@ export function AdvancedSearch({
     setShowFilters(isExpanded)
   }, [isExpanded])
 
-  const handleFilterChange = (key: keyof SearchFilters, value: any) => {
+  const handleFilterChange = (key: keyof SearchFilters, value: string | number | string[] | [number, number]) => {
     const newFilters = { ...filters, [key]: value }
     setFilters(newFilters)
   }
@@ -412,7 +412,7 @@ export function AdvancedSearch({
 
               {/* What's Included */}
               <div className="space-y-4">
-                <label className="text-white font-medium">What's Included</label>
+                <label className="text-white font-medium">What&rsquo;s Included</label>
                 <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
                   {includes.map((include) => {
                     const Icon = include.icon
@@ -449,7 +449,7 @@ export function AdvancedSearch({
                 
                 <div className="flex items-center space-x-3">
                   <span className="text-white/60 text-sm">
-                    {activeFiltersCount > 0 ? `${activeFiltersCount} filter${activeFiltersCount !== 1 ? 's' : ''} applied` : 'No filters applied'}
+                    {activeFiltersCount > 0 ? `${activeFiltersCount} filter${activeFiltersCount !== 1 ? '&rsquo;s' : ''} applied` : 'No filters applied'}
                   </span>
                   <Button
                     onClick={handleSearch}

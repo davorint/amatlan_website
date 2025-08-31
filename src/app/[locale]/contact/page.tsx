@@ -159,7 +159,7 @@ export default function ContactPage() {
               
               <p className="text-xl lg:text-2xl text-white/80 leading-relaxed mb-12 max-w-3xl mx-auto">
                 Reach out to begin your transformative journey. Our wisdom keepers are here to guide 
-                you toward the perfect sacred experience for your soul's calling.
+                you toward the perfect sacred experience for your soul&rsquo;s calling.
               </p>
 
               <div className="flex items-center justify-center space-x-6 text-white/60">
