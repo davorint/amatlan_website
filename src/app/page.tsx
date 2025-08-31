@@ -6,7 +6,7 @@ import { HeroSection } from "@/components/sections/HeroSection"
 import { TestimonialsSection } from "@/components/sections/TestimonialsSection"
 import { LocationSection } from "@/components/sections/LocationSection"
 import { CTASection } from "@/components/sections/CTASection"
-import { LunarCalendarSection } from "@/components/sections/LunarCalendarSection"
+// import { LunarCalendarSection } from "@/components/sections/LunarCalendarSection" // Temporarily disabled due to prerender issue
 import { Navigation } from "@/components/navigation/Navigation"
 
 export default function HomePage() {
@@ -109,7 +109,7 @@ export default function HomePage() {
       </section>
 
       {/* Lunar Calendar Section */}
-      <LunarCalendarSection />
+      {/* <LunarCalendarSection /> */}
       
       {/* Testimonials Section */}
       <TestimonialsSection />
