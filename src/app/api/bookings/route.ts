@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { prisma } from '@/lib/prisma'
+import { BookingStatus } from '@prisma/client'
 import { z } from 'zod'
 
 const createBookingSchema = z.object({
@@ -27,11 +28,11 @@ export async function GET(request: NextRequest) {
     const where: {
       userId?: string
       experienceId?: string
-      status?: string
+      status?: BookingStatus
     } = {}
     if (userId) where.userId = userId
     if (experienceId) where.experienceId = experienceId
-    if (status) where.status = status
+    if (status) where.status = status as BookingStatus
 
     const bookings = await prisma.booking.findMany({
       where,
