@@ -428,7 +428,7 @@ function SearchPageContent() {
                                 className="flex-1 border-white/20 text-white hover:bg-white/10"
                                 asChild
                               >
-                                <Link href={`/${experience.category.toLowerCase()}s/${experience.id}` as any}>
+                                <Link href={`/${experience.category.toLowerCase()}s/${experience.id}` as `/temazcales/${string}` | `/retreats/${string}` | `/healers/${string}`}>
                                   <Eye className="w-4 h-4 mr-2" />
                                   View Details
                                 </Link>
@@ -531,7 +531,7 @@ function SearchPageContent() {
                                   className="border-white/20 text-white hover:bg-white/10"
                                   asChild
                                 >
-                                  <Link href={`/${experience.category.toLowerCase()}s/${experience.id}` as any}>
+                                  <Link href={`/${experience.category.toLowerCase()}s/${experience.id}` as `/temazcales/${string}` | `/retreats/${string}` | `/healers/${string}`}>
                                     <Eye className="w-4 h-4 mr-2" />
                                     View Details
                                   </Link>
