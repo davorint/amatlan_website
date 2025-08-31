@@ -2,8 +2,8 @@
 
 import { useState, Suspense } from 'react'
 import { useSearchParams } from 'next/navigation'
-import { motion, AnimatePresence } from 'framer-motion'
-import { useTranslations } from 'next-intl'
+import { motion, AnimatePresence } from 'motion/react'
+// import { useTranslations } from 'next-intl'
 import { 
   Search, 
   MapPin, 

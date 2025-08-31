@@ -3,7 +3,7 @@
 import { useTranslations } from 'next-intl'
 import { Link } from '@/i18n/routing'
 import { MapPin, Mail, Phone, Facebook, Instagram, Sparkles, Heart } from 'lucide-react'
-import { motion } from 'framer-motion'
+import { motion } from 'motion/react'
 
 export function FooterPremium() {
   const t = useTranslations('Footer')

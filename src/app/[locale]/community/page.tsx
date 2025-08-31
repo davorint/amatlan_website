@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from 'react'
 // import { useTranslations } from 'next-intl'
-import { motion, useScroll, useTransform } from 'framer-motion'
+import { motion, useScroll, useTransform } from 'motion/react'
 import { useInView } from 'react-intersection-observer'
 // import { Card } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'

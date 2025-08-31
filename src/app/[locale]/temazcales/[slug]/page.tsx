@@ -1,9 +1,9 @@
 'use client'
 
 import { useState } from 'react'
-import { useParams } from 'next/navigation'
-import { motion } from 'framer-motion'
-import { useTranslations } from 'next-intl'
+// import { useParams } from 'next/navigation'
+import { motion } from 'motion/react'
+// import { useTranslations } from 'next-intl'
 import { 
   Calendar, 
   Clock, 

@@ -7,8 +7,8 @@ import { Button } from '@/components/ui/button'
 import { Badge } from '@/components/ui/badge'
 import { MapPin, Star, Phone, Mail, Heart, Sparkles, Sun, Eye, Hand, Zap } from 'lucide-react'
 import { motion, useScroll, useTransform } from 'motion/react'
-import { useInView } from 'react-intersection-observer'
-import { useRef, useState } from 'react'
+// import { useInView } from 'react-intersection-observer'
+import { useRef } from 'react'
 
 // Mock data - will be replaced with database queries
 const healerProfiles = [

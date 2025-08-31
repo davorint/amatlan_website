@@ -166,6 +166,7 @@ export async function DELETE(
   context: { params: Promise<{ id: string }> }
 ) {
   try {
+    const params = await context.params
     const body = await request.json()
     const { userId } = body // In real app, get from JWT token
 
