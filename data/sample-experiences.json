@@ -1,0 +1,100 @@
+{
+  "temazcales": [
+    {
+      "title": "Temazcal Nahual",
+      "slug": "nahual-temazcal",
+      "description": "Ceremonia tradicional de purificación con copal y plantas sagradas. Una experiencia ancestral guiada por un temazcalero experimentado.",
+      "category": "TEMAZCAL",
+      "price": 800,
+      "duration": "3 horas",
+      "capacity": 12,
+      "location": {
+        "name": "Centro de Amatlán",
+        "address": "Calle Principal 123, Amatlán de Quetzalcóatl",
+        "lat": 18.9547,
+        "lng": -99.1381
+      },
+      "tags": ["Tradicional", "Purificación", "Copal", "Plantas Sagradas"],
+      "facilitator": "Maestro Carlos Tepeyac",
+      "featured": true
+    },
+    {
+      "title": "Temazcal de Luna Nueva",
+      "slug": "luna-nueva-temazcal",
+      "description": "Ceremonia especial durante la luna nueva para liberación emocional y nuevos comienzos. Incluye meditación y cacao sagrado.",
+      "category": "TEMAZCAL",
+      "price": 1200,
+      "duration": "4 horas",
+      "capacity": 8,
+      "location": {
+        "name": "Casa de los Elementos",
+        "address": "Camino Sagrado 45, Amatlán de Quetzalcóatl",
+        "lat": 18.9567,
+        "lng": -99.1401
+      },
+      "tags": ["Luna Nueva", "Cacao", "Meditación", "Liberación"],
+      "facilitator": "Maestra Isabel Xochitl",
+      "featured": true
+    }
+  ],
+  "retreats": [
+    {
+      "title": "Retiro de Sanación Ancestral",
+      "slug": "retiro-sanacion-ancestral",
+      "description": "Tres días de inmersión completa en las tradiciones curativas de México. Temazcal, plantas medicinales, meditación y conexión con la naturaleza.",
+      "category": "RETREAT",
+      "price": 4500,
+      "duration": "3 días",
+      "capacity": 16,
+      "location": {
+        "name": "Centro Holístico Quetzalcóatl",
+        "address": "Montaña Sagrada s/n, Amatlán de Quetzalcóatl",
+        "lat": 18.9587,
+        "lng": -99.1421
+      },
+      "tags": ["3 Días", "Sanación", "Plantas Medicinales", "Inmersión"],
+      "facilitator": "Círculo de Abuelas",
+      "featured": true
+    }
+  ],
+  "healers": [
+    {
+      "title": "Consulta con Curandera Tradicional",
+      "slug": "curandera-tradicional",
+      "description": "Sesión personalizada de diagnóstico energético y limpia espiritual con una curandera con más de 40 años de experiencia.",
+      "category": "HEALER",
+      "price": 600,
+      "duration": "90 minutos",
+      "capacity": 1,
+      "location": {
+        "name": "Casa de Sanación",
+        "address": "Calle de la Sabiduría 78, Amatlán de Quetzalcóatl",
+        "lat": 18.9527,
+        "lng": -99.1361
+      },
+      "tags": ["Limpia", "Diagnóstico", "Personal", "Tradicional"],
+      "facilitator": "Abuela Carmen Itzel",
+      "featured": false
+    }
+  ],
+  "nature": [
+    {
+      "title": "Senderismo a la Cueva de Quetzalcóatl",
+      "slug": "cueva-quetzalcoatl",
+      "description": "Caminata guiada a la mítica cueva donde según la leyenda nació Quetzalcóatl. Incluye ceremonias en lugares sagrados.",
+      "category": "NATURE",
+      "price": 350,
+      "duration": "4 horas",
+      "capacity": 20,
+      "location": {
+        "name": "Cerro de los Dioses",
+        "address": "Sendero Sagrado, Amatlán de Quetzalcóatl",
+        "lat": 18.9607,
+        "lng": -99.1441
+      },
+      "tags": ["Senderismo", "Cueva", "Leyenda", "Ceremonia"],
+      "facilitator": "Guía José Colibrí",
+      "featured": true
+    }
+  ]
+}

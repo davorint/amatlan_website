@@ -1,0 +1,358 @@
+{
+  "Navigation": {
+    "home": "Inicio",
+    "experiences": "Experiencias",
+    "temazcales": "Temazcales",
+    "retreats": "Retiros",
+    "ecoStays": "Eco-Hospedajes",
+    "healers": "Sanadores",
+    "nature": "Naturaleza",
+    "events": "Eventos",
+    "guides": "Guías",
+    "community": "Comunidad",
+    "facilitators": "Para Facilitadores",
+    "about": "Acerca",
+    "contact": "Contacto",
+    "journal": "Revista"
+  },
+  "Common": {
+    "search": "Buscar",
+    "searchPlaceholder": "Buscar temazcales, retiros, sanadores...",
+    "bookNow": "Reservar Ahora",
+    "viewDetails": "Ver Detalles",
+    "loadMore": "Cargar Más",
+    "readMore": "Leer Más",
+    "seeAll": "Ver Todo",
+    "featured": "Destacado",
+    "verified": "Verificado",
+    "reviews": "reseñas",
+    "review": "reseña",
+    "rating": "Calificación",
+    "price": "Precio",
+    "duration": "Duración",
+    "capacity": "Capacidad",
+    "location": "Ubicación",
+    "contact": "Contacto",
+    "phone": "Teléfono",
+    "email": "Correo",
+    "website": "Sitio Web",
+    "share": "Compartir",
+    "favorite": "Favorito",
+    "available": "Disponible",
+    "unavailable": "No Disponible",
+    "currency": "MXN"
+  },
+  "Homepage": {
+    "heroTitle": "El Directorio Completo de",
+    "heroSubtitle": "Experiencias Espirituales en Amatlán",
+    "heroDescription": "Tu directorio confiable que conecta buscadores con experiencias espirituales auténticas, temazcales tradicionales, retiros transformadores y sanación ancestral en el pueblo místico de México",
+    "location": "Amatlán de Quetzalcóatl, Morelos",
+    "exploreTemazcales": "Explorar Temazcales",
+    "viewRetreats": "Ver Retiros",
+    "findHealers": "Encontrar Sanadores",
+    "categoriesTitle": "Navegar por Categoría",
+    "categoriesSubtitle": "Explora proveedores verificados que ofrecen experiencias espirituales y de bienestar en Amatlán",
+    "categoriesDescription": "Conectamos buscadores con proveedores auténticos locales en el paisaje místico de Amatlán",
+    "allExperiences": "Ver todas las experiencias",
+    "cantFindText": "¿No encuentras lo que buscas? Navega por todas las categorías o ayúdanos a conectar con más proveedores locales",
+    "experiencesCount": "experiencias",
+    "placesCount": "lugares",
+    "healersCount": "sanadores",
+    "activitiesCount": "actividades"
+  },
+  "Categories": {
+    "temazcal": {
+      "title": "Temazcales",
+      "name": "Temazcales",
+      "description": "Ceremonias ancestrales de purificación y renacimiento espiritual"
+    },
+    "retreat": {
+      "title": "Retiros",
+      "name": "Retiros",
+      "description": "Espacios de transformación personal y conexión interior profunda"
+    },
+    "ecoStay": {
+      "title": "Eco-Hospedajes",
+      "name": "Eco-Hospedajes",
+      "description": "Alojamientos sustentables en armonía con la naturaleza"
+    },
+    "healer": {
+      "title": "Sanadores",
+      "name": "Sanadores",
+      "description": "Maestros y curanderos tradicionales para tu bienestar integral"
+    },
+    "nature": {
+      "title": "Naturaleza",
+      "name": "Naturaleza",
+      "description": "Aventuras y experiencias en los paisajes místicos de Amatlán"
+    }
+  },
+  "Temazcales": {
+    "title": "Temazcales Auténticos",
+    "description": "Experimenta la purificación ancestral mexicana. Renace a través del calor curativo, plantas medicinales y ceremonias guiadas por maestros temazcaleros auténticos.",
+    "benefits": {
+      "title": "Beneficios del Temazcal",
+      "physical": "Desintoxicación profunda del cuerpo",
+      "stress": "Liberación de tensiones y estrés",
+      "circulation": "Mejora de la circulación sanguínea",
+      "spiritual": "Conexión espiritual y introspección",
+      "immune": "Fortalecimiento del sistema inmunológico"
+    },
+    "aboutTitle": "¿Qué es un Temazcal?",
+    "aboutDescription1": "El temazcal es una ceremonia ancestral mexicana de purificación que se realiza en un pequeño refugio cerrado, similar a un igloo, construido tradicionalmente con materiales naturales.",
+    "aboutDescription2": "Durante la ceremonia, se introducen piedras volcánicas calientes y se crean vapores con agua e infusiones de plantas medicinales tradicionales como el copal, la salvia y el eucalipto.",
+    "aboutDescription3": "Esta experiencia profunda permite la purificación física, emocional y espiritual, conectándote con tu esencia más profunda y con las tradiciones milenarias de México.",
+    "purification": "Purificación Física",
+    "healing": "Sanación Emocional",
+    "renewal": "Renovación Espiritual",
+    "experiencesFound": "experiencias encontradas"
+  },
+  "Footer": {
+    "description": "Descubre la magia de Amatlán Morelos. Experiencias espirituales, sanación ancestral y conexión con la naturaleza en el pueblo místico de México.",
+    "experiences": "Experiencias",
+    "community": "Comunidad",
+    "facilitators": "Facilitadores",
+    "joinUs": "Únete a nosotros",
+    "plans": "Planes",
+    "dashboard": "Dashboard",
+    "support": "Soporte",
+    "stories": "Historias",
+    "aboutAmatlan": "Acerca de Amatlán",
+    "forum": "Foro",
+    "location": "Amatlán de Quetzalcóatl, Morelos, México",
+    "copyright": "© 2025 Magic Amatlán Directory. Todos los derechos reservados."
+  },
+  "Languages": {
+    "spanish": "Español",
+    "english": "English",
+    "selectLanguage": "Seleccionar idioma"
+  },
+  "Retreats": {
+    "title": "Retiros Transformadores",
+    "description": "Experiencias transformadoras de varios días que combinan sabiduría ancestral con prácticas de sanación modernas",
+    "benefits": {
+      "title": "Beneficios de los Retiros",
+      "healing": "Sanación emocional profunda y liberación",
+      "awakening": "Despertar espiritual y expansión de conciencia",
+      "community": "Comunidad solidaria y conexiones de por vida",
+      "integration": "Apoyo de integración para transformación duradera",
+      "wisdom": "Acceso a sabiduría shamánica auténtica",
+      "tools": "Herramientas y prácticas para crecimiento continuo"
+    }
+  },
+  "EcoStays": {
+    "title": "Hospedajes Eco-Conscientes",
+    "description": "Alojamientos de lujo sustentable que honran tanto tu comodidad como a la Madre Tierra",
+    "sustainability": "Calificación Eco",
+    "benefits": {
+      "title": "Estándares Ecológicos",
+      "renewable": "Sistemas 100% de energía renovable",
+      "plastic": "Política cero plásticos de un solo uso",
+      "organic": "Cocina local, orgánica, de la granja a la mesa",
+      "water": "Conservación y reciclaje de agua",
+      "habitat": "Proyectos de restauración de hábitat nativo",
+      "carbon": "Operaciones carbono-negativas"
+    }
+  },
+  "Healers": {
+    "title": "Curanderos Tradicionales",
+    "description": "Curanderos tradicionales auténticos que preservan la sabiduría ancestral mexicana para la transformación moderna",
+    "modalities": {
+      "title": "Modalidades de Sanación",
+      "curanderismo": "Curanderismo tradicional mexicano",
+      "plant": "Ceremonias tradicionales de medicina vegetal",
+      "energy": "Sanación energética y recuperación del alma",
+      "ancestral": "Sanación ancestral y trabajo de vidas pasadas",
+      "circles": "Círculos curativos de mujeres y hombres",
+      "crystal": "Prácticas de sanación con cristales y sonido"
+    }
+  },
+  "Nature": {
+    "title": "Aventuras en la Naturaleza",
+    "description": "Aventuras espirituales y peregrinajes a sitios ancestrales en los paisajes místicos de Amatlán",
+    "experiences": {
+      "title": "Lo que te espera",
+      "mountains": "Templos de montaña ancestrales y sitios piramidales",
+      "waterfalls": "Cascadas ocultas con propiedades curativas",
+      "caves": "Cuevas antiguas usadas para ceremonias",
+      "plants": "Caminatas de plantas medicinales con conocimiento indígena",
+      "ceremonies": "Ceremonias de amanecer y atardecer en lugares de poder",
+      "wildlife": "Encuentros con vida silvestre en arboledas naturales"
+    }
+  },
+  "Testimonials": {
+    "title": "Vidas Transformadas",
+    "subtitle": "Historias Inspiradoras",
+    "badge": "Historias Inspiradoras",
+    "description": "Descubre cómo miles de almas han encontrado sanación, propósito y transformación a través de nuestras ceremonias significativas y prácticas ancestrales.",
+    "stats": {
+      "averageRating": "Calificación Promedio",
+      "transformedLives": "Vidas Transformadas",
+      "lifeChangingExperiences": "Experiencias Transformadoras",
+      "countriesRepresented": "Países Representados"
+    }
+  },
+  "CTA": {
+    "title": "Tu Transformación te Espera",
+    "subtitle": "Comienza tu Viaje", 
+    "badge": "Tu Viaje te Espera",
+    "headline": "¿Listo para Transformar tu Vida?",
+    "description": "Únete a miles de almas que han descubierto su verdadero propósito a través de nuestras prácticas ancestrales de sanación. Tu transformación comienza con un solo paso.",
+    "buttons": {
+      "beginJourney": "Comienza tu Viaje",
+      "speakGuide": "Habla con un Guía"
+    },
+    "trustIndicators": {
+      "sacredRating": "Calificación Promedio",
+      "livesTransformed": "Vidas Transformadas",
+      "yearsService": "Años de Servicio"
+    },
+    "contact": {
+      "callGuide": "Llama a Nuestro Guía",
+      "callDescription": "Habla directamente con nuestros guías espirituales experimentados",
+      "callCTA": "Llamar Ahora",
+      "sacredInquiry": "Consulta General",
+      "emailDescription": "Envíanos tus preguntas e intenciones espirituales",
+      "emailCTA": "Escríbenos",
+      "whatsappGuidance": "Guía por WhatsApp",
+      "whatsappDescription": "Conexión instantánea con nuestra comunidad espiritual",
+      "whatsappCTA": "Mensaje"
+    },
+    "footer": "Santuario de sanación en Morelos, México.",
+    "footerDetails": "Todas las experiencias se realizan con protocolos indígenas tradicionales y estándares de seguridad modernos."
+  },
+  "Events": {
+    "title": "Eventos Transformadores",
+    "description": "Únete a nuestra comunidad de buscadores espirituales en ceremonias poderosas, talleres de sanación y retiros transformadores",
+    "upcomingEvents": "Próximos Eventos",
+    "allEvents": "Todos los Eventos",
+    "categories": {
+      "all": "Todos los Eventos",
+      "ceremony": "Ceremonias",
+      "festival": "Festivales",
+      "retreat": "Retiros",
+      "workshop": "Talleres",
+      "healing": "Sanación",
+      "circle": "Círculos",
+      "medicine": "Medicina"
+    },
+    "filters": {
+      "category": "Categoría",
+      "month": "Mes",
+      "allMonths": "Todos los Meses"
+    },
+    "eventDetails": {
+      "facilitator": "Facilitador",
+      "date": "Fecha",
+      "time": "Hora",
+      "duration": "Duración",
+      "location": "Ubicación",
+      "capacity": "Capacidad",
+      "attendees": "Asistentes",
+      "available": "Disponible",
+      "spotsLeft": "lugares disponibles",
+      "includes": "Incluye",
+      "benefits": "Beneficios",
+      "intensity": "Intensidad"
+    },
+    "actions": {
+      "viewEvent": "Ver Evento",
+      "bookNow": "Reservar Ahora",
+      "joinWaitlist": "Unirse a Lista de Espera",
+      "createAlert": "Crear Alerta de Eventos",
+      "loadMore": "Cargar Más Eventos"
+    },
+    "community": {
+      "title": "Únete a Nuestra Familia Espiritual",
+      "description": "Conecta con almas afines en ceremonias significativas y sanación",
+      "joinCommunity": "Únete a la Comunidad",
+      "viewTestimonials": "Ver Testimonios"
+    },
+    "stats": {
+      "soulsConnected": "Almas Conectadas",
+      "eventsHosted": "Eventos Realizados",
+      "averageRating": "Calificación Promedio",
+      "countriesUnited": "Países Unidos"
+    }
+  },
+  "Location": {
+    "title": "Viaje a la Magia de Amatlán",
+    "subtitle": "Ubicación Mística",
+    "description": "Descubre por qué este valle místico en Morelos, México ha sido un destino de peregrinaje para buscadores espirituales durante más de 1,000 años.",
+    "whereWisdomLives": "Donde Vive la Sabiduría Ancestral",
+    "legendaryText": "Amatlán de Quetzalcóatl se asienta en un valle místico donde se dice que nació la legendaria Serpiente Emplumada. Este paisaje poderoso ha mantenido su energía espiritual durante milenios, convirtiéndolo en el escenario perfecto para la transformación profunda.",
+    "features": {
+      "sacredMountains": "Montañas Místicas",
+      "naturalSprings": "Manantiales Naturales",
+      "ancientForest": "Bosque Ancestral", 
+      "perfectClimate": "Clima Perfecto",
+      "mountainsDesc": "Anidadas en la mística Sierra Madre del Sur, donde la energía ancestral fluye a través de picos volcánicos",
+      "springsDesc": "Aguas cristalinas que emergen de cuevas profundas de la tierra, cargadas con minerales curativos y energía",
+      "forestDesc": "Árboles centenarios creando un templo natural donde se han realizado ceremonias indígenas por generaciones",
+      "climateDesc": "Clima templado durante todo el año ideal para ceremonias al aire libre y prácticas espirituales"
+    },
+    "logistics": {
+      "gettingHere": "Cómo Llegar",
+      "bestTimeToVisit": "Mejor Época para Visitar",
+      "whatsIncluded": "Qué Incluye"
+    },
+    "sacredGeometry": "La Geometría Natural de la Sanación",
+    "geometryDescription": "Amatlán se sitúa en la intersección de poderosas líneas energéticas que han sido reconocidas por los pueblos indígenas durante siglos. La formación natural del valle, combinada con sistemas de agua subterráneos y energía volcánica, crea un campo energético único perfecto para la transformación espiritual y la sanación.",
+    "buttons": {
+      "planVisit": "Planea tu Visita",
+      "learnHistory": "Conoce la Historia", 
+      "viewMap": "Ver Mapa Interactivo"
+    },
+    "mapInfo": {
+      "valleyLocation": "Ubicación del Valle",
+      "distanceFrom": "Distancia desde",
+      "altitude": "Altitud",
+      "perfectFor": "Perfecto para",
+      "healing": "Sanación"
+    }
+  },
+  "LunarCalendar": {
+    "title": "Calendario Lunar Sagrado",
+    "subtitle": "Ritmos de la Luna", 
+    "description": "Conéctate con los ciclos lunares ancestrales. La luna guía nuestras ceremonias y rituales en Amatlán.",
+    "currentPhase": "Fase Actual",
+    "upcomingPhases": "Próximas Fases",
+    "viewLunarCeremonies": "Ver Ceremonias Lunares",
+    "today": "Hoy",
+    "phases": {
+      "new": "Luna Nueva",
+      "waxingCrescent": "Luna Creciente",
+      "firstQuarter": "Cuarto Creciente", 
+      "waxingGibbous": "Luna Gibosa Creciente",
+      "full": "Luna Llena",
+      "waningGibbous": "Luna Gibosa Menguante",
+      "lastQuarter": "Cuarto Menguante",
+      "waningCrescent": "Luna Menguante"
+    },
+    "descriptions": {
+      "new": "Tiempo de nuevos comienzos y manifestación",
+      "waxingCrescent": "Momento de establecer intenciones",
+      "firstQuarter": "Tiempo de acción y decisiones",
+      "waxingGibbous": "Refinamiento y ajustes",
+      "full": "Celebración y gratitud",
+      "waningGibbous": "Tiempo de compartir sabiduría",
+      "lastQuarter": "Liberación y perdón",
+      "waningCrescent": "Descanso y reflexión"
+    },
+    "bestFor": {
+      "new": "Manifestación",
+      "full": "Ceremonias",
+      "waxing": "Crecimiento",
+      "waning": "Liberación"
+    },
+    "element": "Agua",
+    "chakra": "Corona",
+    "illumination": "iluminación",
+    "legend": {
+      "newMoon": "Luna Nueva",
+      "firstQuarter": "Cuarto Creciente",
+      "fullMoon": "Luna Llena",
+      "lastQuarter": "Cuarto Menguante"
+    }
+  }
+}
