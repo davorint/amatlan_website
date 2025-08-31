@@ -37,7 +37,6 @@ export async function GET(
       experienceId: string
       active?: boolean
       startTime?: { gte: Date }
-      OR?: Array<{ maxCapacity: null } | { AND: Array<{ maxCapacity: { not: null }; currentCount: { lt: { maxCapacity: boolean } } }> }>
     } = { experienceId: params.id }
     
     if (active !== null) where.active = active === 'true'
@@ -46,21 +45,8 @@ export async function GET(
     if (upcoming === 'true') {
       where.startTime = { gte: new Date() }
     }
-    
-    // Filter available sessions (has capacity)
-    if (available === 'true') {
-      where.OR = [
-        { maxCapacity: null }, // No capacity limit
-        {
-          AND: [
-            { maxCapacity: { not: null } },
-            { currentCount: { lt: { maxCapacity: true } } }
-          ]
-        }
-      ]
-    }
 
-    const sessions = await prisma.experienceSession.findMany({
+    let sessions = await prisma.experienceSession.findMany({
       where,
       include: {
         _count: {
@@ -75,6 +61,15 @@ export async function GET(
       },
       orderBy: { startTime: 'asc' }
     })
+
+    // Filter available sessions (has capacity) in application logic
+    if (available === 'true') {
+      sessions = sessions.filter(session => {
+        // No capacity limit or has available spots
+        return session.maxCapacity === null || 
+               session.currentCount < session.maxCapacity
+      })
+    }
 
     return NextResponse.json({
       success: true,
