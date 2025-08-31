@@ -1,12 +1,11 @@
 'use client'
 
-import { motion } from "motion/react"
 import { Calendar, Users, Heart, Star } from "lucide-react"
 import { HeroSection } from "@/components/sections/HeroSection"
 import { TestimonialsSection } from "@/components/sections/TestimonialsSection"
 import { LocationSection } from "@/components/sections/LocationSection"
 import { CTASection } from "@/components/sections/CTASection"
-import { LunarCalendarSection } from "@/components/sections/LunarCalendarSection"
+// import { LunarCalendarSection } from "@/components/sections/LunarCalendarSection"
 import { Navigation } from "@/components/navigation/Navigation"
 
 export default function HomePage() {
@@ -28,26 +27,16 @@ export default function HomePage() {
         
         <div className="container mx-auto px-4">
           {/* Section Header */}
-          <motion.div
-            initial={{ opacity: 0, y: 40 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 1, ease: [0.19, 1, 0.22, 1] }}
-            className="text-center mb-20"
-          >
+          <div className="text-center mb-20">
             <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-kinetic text-shadow-luxury">
               Sacred Impact
             </h2>
             <p className="text-xl md:text-2xl text-white/70 max-w-3xl mx-auto leading-relaxed font-light">
               Witness the transformative power of ancient wisdom in modern souls
             </p>
-          </motion.div>
+          </div>
           
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8, ease: [0.19, 1, 0.22, 1] }}
+          <div
             className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8"
           >
             {[
@@ -56,22 +45,13 @@ export default function HomePage() {
               { icon: Heart, value: "98%", label: "Life-Changing Experiences", color: "prism-amber", description: "Participants reporting profound transformation" },
               { icon: Star, value: "4.9", label: "Sacred Rating", color: "prism-rose", description: "Average rating from our spiritual community" }
             ].map((stat, index) => (
-              <motion.div
+              <div
                 key={stat.label}
-                initial={{ opacity: 0, scale: 0.8, y: 40 }}
-                whileInView={{ opacity: 1, scale: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ 
-                  duration: 0.8, 
-                  delay: index * 0.15,
-                  ease: [0.19, 1, 0.22, 1]
-                }}
                 className="crystal-panel-luxury p-8 text-center group cursor-pointer relative overflow-hidden hover-lift hover-glow"
               >
                 {/* Enhanced gradient overlay with animation */}
-                <motion.div 
+                <div 
                   className={`absolute inset-0 opacity-0 group-hover:opacity-15 transition-all duration-500 bg-gradient-to-br from-[var(--color-${stat.color})]/30 to-transparent`}
-                  whileHover={{ scale: 1.1 }}
                 />
                 
                 {/* Shimmer effect */}
@@ -80,19 +60,15 @@ export default function HomePage() {
                 </div>
                 
                 <div className="relative z-10">
-                  <motion.div
-                    whileHover={{ scale: 1.1, rotate: 5 }}
-                    transition={{ type: "spring", stiffness: 300, damping: 20 }}
-                  >
+                  <div>
                     <stat.icon className={`w-12 h-12 mx-auto mb-6 text-[var(--color-${stat.color})] animate-breathe-glow`} />
-                  </motion.div>
+                  </div>
                   
-                  <motion.div 
+                  <div 
                     className={`text-4xl md:text-5xl font-bold mb-3 text-kinetic`}
-                    whileHover={{ scale: 1.05 }}
                   >
                     {stat.value}
-                  </motion.div>
+                  </div>
                   
                   <div className="text-lg font-semibold text-white/90 mb-3">
                     {stat.label}
@@ -102,14 +78,14 @@ export default function HomePage() {
                     {stat.description}
                   </div>
                 </div>
-              </motion.div>
+              </div>
             ))}
-          </motion.div>
+          </div>
         </div>
       </section>
 
       {/* Lunar Calendar Section */}
-      <LunarCalendarSection />
+      {/* <LunarCalendarSection /> */}
       
       {/* Testimonials Section */}
       <TestimonialsSection />

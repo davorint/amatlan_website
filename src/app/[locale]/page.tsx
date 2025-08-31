@@ -1,5 +1,6 @@
 import { CategoryGridPremium } from '@/components/homepage/CategoryGridPremium'
 import { Link } from '@/i18n/routing'
+import { LunarCalendarSection } from '@/components/sections/LunarCalendarSection'
 
 export default function Home() {
   return (
@@ -33,6 +34,9 @@ export default function Home() {
       
       {/* Restored Component that works */}
       <CategoryGridPremium />
+      
+      {/* Lunar Calendar Section */}
+      <LunarCalendarSection />
     </div>
   )
 }

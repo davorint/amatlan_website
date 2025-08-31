@@ -4,10 +4,10 @@ import React, { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'motion/react'
 import { Moon, Sun, Star, Sparkles, Calendar, ChevronLeft, ChevronRight, Info } from 'lucide-react'
 import { Button } from '@/components/ui/button'
-import { useTranslations, useLocale } from 'next-intl'
+import { useTranslations } from 'next-intl'
 
 // Moon phase calculations
-const getMoonPhase = (date: Date, t: (key: string) => string): { phase: string; illumination: number; emoji: string; name: string; description: string } => {
+const getMoonPhase = (date: Date, t: any): { phase: string; illumination: number; emoji: string; name: string; description: string } => {
   // Calculate days since new moon (January 6, 2000)
   const baseNewMoon = new Date(2000, 0, 6)
   const lunarCycle = 29.53058867 // days
@@ -84,7 +84,7 @@ const getMoonPhase = (date: Date, t: (key: string) => string): { phase: string; 
 }
 
 // Get next important lunar dates
-const getUpcomingLunarEvents = (startDate: Date, t: (key: string) => string): Array<{ date: Date; phase: string; name: string }> => {
+const getUpcomingLunarEvents = (startDate: Date, t: any): Array<{ date: Date; phase: string; name: string }> => {
   const events: Array<{ date: Date; phase: string; name: string }> = []
   const checkDate = new Date(startDate)
   
@@ -111,37 +111,22 @@ const getUpcomingLunarEvents = (startDate: Date, t: (key: string) => string): Ar
   return events
 }
 
-// Moon visualization component
+// Moon visualization component - simplified for SSR compatibility
 const MoonVisualization = ({ phase, illumination }: { phase: string; illumination: number }) => {
   return (
     <div className="relative w-32 h-32 mx-auto">
       {/* Moon base */}
-      <motion.div
-        className="absolute inset-0 rounded-full bg-gradient-to-br from-gray-800 to-gray-900"
-        animate={{ 
-          rotate: [0, 360],
-        }}
-        transition={{ 
-          duration: 120,
-          repeat: Infinity,
-          ease: "linear"
-        }}
-      >
+      <div className="absolute inset-0 rounded-full bg-gradient-to-br from-gray-800 to-gray-900">
         {/* Craters */}
         <div className="absolute top-4 left-6 w-3 h-3 bg-gray-700 rounded-full opacity-30" />
         <div className="absolute top-8 right-8 w-2 h-2 bg-gray-700 rounded-full opacity-30" />
         <div className="absolute bottom-6 left-8 w-4 h-4 bg-gray-700 rounded-full opacity-30" />
-      </motion.div>
+      </div>
       
       {/* Illumination overlay */}
-      <motion.div
-        className="absolute inset-0 rounded-full overflow-hidden"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 1 }}
-      >
+      <div className="absolute inset-0 rounded-full overflow-hidden">
         <div 
-          className="absolute inset-0 bg-gradient-to-r from-yellow-200 to-yellow-100"
+          className="absolute inset-0 bg-gradient-to-r from-yellow-200 to-yellow-100 transition-all duration-1000"
           style={{
             clipPath: phase.includes('waning') 
               ? `inset(0 ${100 - illumination}% 0 0)`
@@ -152,23 +137,15 @@ const MoonVisualization = ({ phase, illumination }: { phase: string; illuminatio
               : 'inset(0 100% 0 0)'
           }}
         />
-      </motion.div>
+      </div>
       
-      {/* Glow effect */}
-      <motion.div
-        className="absolute -inset-4 rounded-full"
-        animate={{ 
-          opacity: [0.3, 0.6, 0.3],
-          scale: [1, 1.1, 1]
-        }}
-        transition={{ 
-          duration: 4,
-          repeat: Infinity,
-          ease: "easeInOut"
-        }}
+      {/* Simplified glow effect */}
+      <div 
+        className="absolute -inset-4 rounded-full transition-opacity duration-1000"
         style={{
-          background: `radial-gradient(circle, rgba(250, 240, 137, ${illumination / 200}) 0%, transparent 70%)`,
-          filter: 'blur(8px)'
+          background: `radial-gradient(circle, rgba(250, 240, 137, ${illumination / 300}) 0%, transparent 70%)`,
+          filter: 'blur(8px)',
+          opacity: 0.5
         }}
       />
     </div>
@@ -177,7 +154,6 @@ const MoonVisualization = ({ phase, illumination }: { phase: string; illuminatio
 
 export function LunarCalendarSection() {
   const t = useTranslations('LunarCalendar')
-  const locale = useLocale()
   const [currentDate, setCurrentDate] = useState(new Date())
   const [selectedMonth, setSelectedMonth] = useState(new Date())
   const [currentMoonPhase, setCurrentMoonPhase] = useState(getMoonPhase(new Date(), t))
@@ -192,11 +168,11 @@ export function LunarCalendarSection() {
     }, 60000) // Update every minute
 
     return () => clearInterval(timer)
-  }, [t])
+  }, [])
 
   useEffect(() => {
     setUpcomingEvents(getUpcomingLunarEvents(selectedMonth, t))
-  }, [selectedMonth, t])
+  }, [selectedMonth])
 
   const getDaysInMonth = (date: Date) => {
     const year = date.getFullYear()
@@ -222,7 +198,7 @@ export function LunarCalendarSection() {
   }
 
   const formatMonth = (date: Date) => {
-    return date.toLocaleDateString(locale === 'en' ? 'en-US' : 'es-ES', { month: 'long', year: 'numeric' })
+    return date.toLocaleDateString('en-US', { month: 'long', year: 'numeric' })
   }
 
   const navigateMonth = (direction: 'prev' | 'next') => {
@@ -238,9 +214,7 @@ export function LunarCalendarSection() {
   }
 
   const days = getDaysInMonth(selectedMonth)
-  const weekDays = locale === 'en' 
-    ? ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat']
-    : ['Dom', 'Lun', 'Mar', 'Mié', 'Jue', 'Vie', 'Sáb']
+  const weekDays = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat']
 
   return (
     <section className="py-24 relative overflow-hidden">
@@ -248,24 +222,14 @@ export function LunarCalendarSection() {
       <div className="absolute inset-0">
         <div className="absolute inset-0 bg-gradient-to-b from-black via-purple-950/20 to-black" />
         
-        {/* Animated stars */}
-        {[...Array(50)].map((_, i) => (
-          <motion.div
+        {/* Static stars for SSR compatibility */}
+        {[...Array(30)].map((_, i) => (
+          <div
             key={i}
-            className="absolute w-1 h-1 bg-white rounded-full"
-            initial={{ 
-              x: Math.random() * 1400,
-              y: Math.random() * 800,
-              opacity: Math.random() * 0.8 + 0.2
-            }}
-            animate={{ 
-              opacity: [null, Math.random() * 0.8 + 0.2, null],
-              scale: [1, 1.5, 1]
-            }}
-            transition={{ 
-              duration: Math.random() * 5 + 3,
-              repeat: Infinity,
-              ease: "easeInOut"
+            className="absolute w-1 h-1 bg-white rounded-full opacity-60"
+            style={{
+              left: `${(i * 47) % 100}%`,
+              top: `${(i * 31) % 100}%`,
             }}
           />
         ))}
@@ -351,7 +315,7 @@ export function LunarCalendarSection() {
                   >
                     <div className="space-y-3 text-sm">
                       <div className="flex justify-between">
-                        <span className="text-white/60">{locale === 'en' ? 'Best for' : 'Mejor para'}:</span>
+                        <span className="text-white/60">Best for:</span>
                         <span className="text-white/80">
                           {currentMoonPhase.phase === 'new' && t('bestFor.new')}
                           {currentMoonPhase.phase === 'full' && t('bestFor.full')}
@@ -360,11 +324,11 @@ export function LunarCalendarSection() {
                         </span>
                       </div>
                       <div className="flex justify-between">
-                        <span className="text-white/60">{locale === 'en' ? 'Element' : 'Elemento'}:</span>
+                        <span className="text-white/60">Element:</span>
                         <span className="text-white/80">{t('element')}</span>
                       </div>
                       <div className="flex justify-between">
-                        <span className="text-white/60">{locale === 'en' ? 'Chakra' : 'Chakra'}:</span>
+                        <span className="text-white/60">Chakra:</span>
                         <span className="text-white/80">{t('chakra')}</span>
                       </div>
                     </div>
@@ -394,7 +358,7 @@ export function LunarCalendarSection() {
                         <div>
                           <p className="text-sm font-medium text-white">{event.name}</p>
                           <p className="text-xs text-white/50">
-                            {event.date.toLocaleDateString(locale === 'en' ? 'en-US' : 'es-ES', { day: 'numeric', month: 'short' })}
+                            {event.date.toLocaleDateString('en-US', { day: 'numeric', month: 'short' })}
                           </p>
                         </div>
                       </div>
