@@ -2,7 +2,7 @@
 
 import { useState } from 'react'
 import { motion } from 'framer-motion'
-import { useTranslations } from 'next-intl'
+// import { useTranslations } from 'next-intl'
 import { 
   Mail, 
   MapPin, 
@@ -13,6 +13,8 @@ import {
   Calendar,
   Globe,
   Instagram,
+  Sun,
+  Moon,
   Facebook,
   Youtube,
   Shield,
@@ -384,7 +386,7 @@ export default function ContactPage() {
                 </h3>
                 
                 <div className="space-y-6">
-                  {contactMethods.map((method, _index) => {
+                  {contactMethods.map((method) => {
                     const Icon = method.icon
                     return (
                       <div key={method.title} className="group">
