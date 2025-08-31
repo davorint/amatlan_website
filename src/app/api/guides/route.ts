@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { prisma } from '@/lib/prisma'
+import { GuideCategory, Difficulty } from '@prisma/client'
 import { z } from 'zod'
 
 const createGuideSchema = z.object({
@@ -30,8 +31,8 @@ export async function GET(request: NextRequest) {
     const limit = parseInt(searchParams.get('limit') || '10')
 
     const where: {
-      category?: string
-      difficulty?: string
+      category?: GuideCategory
+      difficulty?: Difficulty
       featured?: boolean
       published?: boolean
       tags?: { hasSome: string[] }
@@ -42,8 +43,8 @@ export async function GET(request: NextRequest) {
       }>
     } = {}
     
-    if (category) where.category = category
-    if (difficulty) where.difficulty = difficulty
+    if (category) where.category = category as GuideCategory
+    if (difficulty) where.difficulty = difficulty as Difficulty
     if (featured !== null) where.featured = featured === 'true'
     if (published !== null) where.published = published === 'true'
     if (tags?.length) where.tags = { hasSome: tags }
