@@ -16,9 +16,10 @@ const updateBookingSchema = z.object({
 // GET /api/bookings/[id] - Get specific booking
 export async function GET(
   request: NextRequest,
-  { params }: { params: { id: string } }
+  context: { params: Promise<{ id: string }> }
 ) {
   try {
+    const params = await context.params
     const booking = await prisma.booking.findUnique({
       where: { id: params.id },
       include: {
@@ -72,7 +73,7 @@ export async function GET(
       booking
     })
 
-  } catch (error) {
+  } catch (error: unknown) {
     console.error('Get booking error:', error)
     return NextResponse.json(
       { error: 'Internal server error' },
@@ -84,9 +85,10 @@ export async function GET(
 // PUT /api/bookings/[id] - Update booking
 export async function PUT(
   request: NextRequest,
-  { params }: { params: { id: string } }
+  context: { params: Promise<{ id: string }> }
 ) {
   try {
+    const params = await context.params
     const body = await request.json()
     const { userId, userRole } = body // In real app, get from JWT token
 
@@ -205,7 +207,7 @@ export async function PUT(
       message: 'Booking updated successfully'
     })
 
-  } catch (error) {
+  } catch (error: unknown) {
     console.error('Update booking error:', error)
     return NextResponse.json(
       { error: 'Internal server error' },
@@ -217,8 +219,9 @@ export async function PUT(
 // DELETE /api/bookings/[id] - Cancel/Delete booking
 export async function DELETE(
   request: NextRequest,
-  { params }: { params: { id: string } }
+  context: { params: Promise<{ id: string }> }
 ) {
+  const params = await context.params
   try {
     const body = await request.json()
     const { userId, userRole } = body // In real app, get from JWT token
@@ -286,7 +289,7 @@ export async function DELETE(
       message: 'Booking cancelled successfully'
     })
 
-  } catch (error) {
+  } catch (error: unknown) {
     console.error('Cancel booking error:', error)
     return NextResponse.json(
       { error: 'Internal server error' },

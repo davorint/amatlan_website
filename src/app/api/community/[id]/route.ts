@@ -15,9 +15,10 @@ const updatePostSchema = z.object({
 // GET /api/community/[id] - Get specific community post
 export async function GET(
   request: NextRequest,
-  { params }: { params: { id: string } }
+  context: { params: Promise<{ id: string }> }
 ) {
   try {
+    const params = await context.params
     const post = await prisma.communityPost.findUnique({
       where: { id: params.id },
       include: {
@@ -75,7 +76,7 @@ export async function GET(
       post
     })
 
-  } catch (error) {
+  } catch (error: unknown) {
     console.error('Get community post error:', error)
     return NextResponse.json(
       { error: 'Internal server error' },
@@ -87,9 +88,10 @@ export async function GET(
 // PUT /api/community/[id] - Update community post
 export async function PUT(
   request: NextRequest,
-  { params }: { params: { id: string } }
+  context: { params: Promise<{ id: string }> }
 ) {
   try {
+    const params = await context.params
     const body = await request.json()
     const { userId, userRole } = body // In real app, get from JWT token
 
@@ -163,7 +165,7 @@ export async function PUT(
       message: 'Community post updated successfully'
     })
 
-  } catch (error) {
+  } catch (error: unknown) {
     console.error('Update community post error:', error)
     return NextResponse.json(
       { error: 'Internal server error' },
@@ -175,9 +177,10 @@ export async function PUT(
 // DELETE /api/community/[id] - Delete community post
 export async function DELETE(
   request: NextRequest,
-  { params }: { params: { id: string } }
+  context: { params: Promise<{ id: string }> }
 ) {
   try {
+    const params = await context.params
     const body = await request.json()
     const { userId, userRole } = body // In real app, get from JWT token
 
@@ -221,7 +224,7 @@ export async function DELETE(
       message: 'Community post deleted successfully'
     })
 
-  } catch (error) {
+  } catch (error: unknown) {
     console.error('Delete community post error:', error)
     return NextResponse.json(
       { error: 'Internal server error' },

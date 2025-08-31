@@ -12,9 +12,10 @@ const createSessionSchema = z.object({
 // GET /api/experiences/[id]/sessions - List sessions for experience
 export async function GET(
   request: NextRequest,
-  { params }: { params: { id: string } }
+  context: { params: Promise<{ id: string }> }
 ) {
   try {
+    const params = await context.params
     const { searchParams } = new URL(request.url)
     const active = searchParams.get('active')
     const upcoming = searchParams.get('upcoming')
@@ -92,9 +93,10 @@ export async function GET(
 // POST /api/experiences/[id]/sessions - Create new session
 export async function POST(
   request: NextRequest,
-  { params }: { params: { id: string } }
+  context: { params: Promise<{ id: string }> }
 ) {
   try {
+    const params = await context.params
     const body = await request.json()
     const { userId, userRole } = body // In real app, get from JWT token
 

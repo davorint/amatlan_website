@@ -18,8 +18,9 @@ const updateBlogPostSchema = z.object({
 // GET /api/blog/[slug] - Get specific blog post by slug
 export async function GET(
   request: NextRequest,
-  { params }: { params: { slug: string } }
+  context: { params: Promise<{ slug: string }> }
 ) {
+  const params = await context.params
   try {
     const post = await prisma.blogPost.findUnique({
       where: { slug: params.slug }
@@ -46,7 +47,7 @@ export async function GET(
       post
     })
 
-  } catch (error) {
+  } catch (error: unknown) {
     console.error('Get blog post error:', error)
     return NextResponse.json(
       { error: 'Internal server error' },
@@ -58,8 +59,9 @@ export async function GET(
 // PUT /api/blog/[slug] - Update blog post
 export async function PUT(
   request: NextRequest,
-  { params }: { params: { slug: string } }
+  context: { params: Promise<{ slug: string }> }
 ) {
+  const params = await context.params
   try {
     const body = await request.json()
     const { userId, userRole } = body // In real app, get from JWT token
@@ -147,7 +149,7 @@ export async function PUT(
       message: 'Blog post updated successfully'
     })
 
-  } catch (error) {
+  } catch (error: unknown) {
     console.error('Update blog post error:', error)
     return NextResponse.json(
       { error: 'Internal server error' },
@@ -159,8 +161,9 @@ export async function PUT(
 // DELETE /api/blog/[slug] - Delete blog post
 export async function DELETE(
   request: NextRequest,
-  { params }: { params: { slug: string } }
+  context: { params: Promise<{ slug: string }> }
 ) {
+  const params = await context.params
   try {
     const body = await request.json()
     const { userId, userRole } = body // In real app, get from JWT token
@@ -202,7 +205,7 @@ export async function DELETE(
       message: 'Blog post deleted successfully'
     })
 
-  } catch (error) {
+  } catch (error: unknown) {
     console.error('Delete blog post error:', error)
     return NextResponse.json(
       { error: 'Internal server error' },

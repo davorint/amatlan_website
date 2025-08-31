@@ -13,9 +13,10 @@ const updateSessionSchema = z.object({
 // GET /api/sessions/[id] - Get specific session
 export async function GET(
   request: NextRequest,
-  { params }: { params: { id: string } }
+  context: { params: Promise<{ id: string }> }
 ) {
   try {
+    const params = await context.params
     const session = await prisma.experienceSession.findUnique({
       where: { id: params.id },
       include: {
@@ -75,7 +76,7 @@ export async function GET(
       session
     })
 
-  } catch (error) {
+  } catch (error: unknown) {
     console.error('Get session error:', error)
     return NextResponse.json(
       { error: 'Internal server error' },
@@ -87,9 +88,10 @@ export async function GET(
 // PUT /api/sessions/[id] - Update session
 export async function PUT(
   request: NextRequest,
-  { params }: { params: { id: string } }
+  context: { params: Promise<{ id: string }> }
 ) {
   try {
+    const params = await context.params
     const body = await request.json()
     const { userId, userRole } = body // In real app, get from JWT token
 
@@ -208,7 +210,7 @@ export async function PUT(
       message: 'Session updated successfully'
     })
 
-  } catch (error) {
+  } catch (error: unknown) {
     console.error('Update session error:', error)
     return NextResponse.json(
       { error: 'Internal server error' },
@@ -220,9 +222,10 @@ export async function PUT(
 // DELETE /api/sessions/[id] - Delete session
 export async function DELETE(
   request: NextRequest,
-  { params }: { params: { id: string } }
+  context: { params: Promise<{ id: string }> }
 ) {
   try {
+    const params = await context.params
     const body = await request.json()
     const { userId, userRole } = body // In real app, get from JWT token
 
@@ -292,7 +295,7 @@ export async function DELETE(
       message: 'Session deleted successfully'
     })
 
-  } catch (error) {
+  } catch (error: unknown) {
     console.error('Delete session error:', error)
     return NextResponse.json(
       { error: 'Internal server error' },

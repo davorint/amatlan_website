@@ -11,9 +11,10 @@ const updateUserSchema = z.object({
 // GET /api/users/[id] - Get user profile
 export async function GET(
   request: NextRequest,
-  { params }: { params: { id: string } }
+  context: { params: Promise<{ id: string }> }
 ) {
   try {
+    const params = await context.params
     const user = await prisma.user.findUnique({
       where: { id: params.id },
       select: {
@@ -88,7 +89,7 @@ export async function GET(
       user
     })
 
-  } catch (error) {
+  } catch (error: unknown) {
     console.error('Get user profile error:', error)
     return NextResponse.json(
       { error: 'Internal server error' },
@@ -100,9 +101,10 @@ export async function GET(
 // PUT /api/users/[id] - Update user profile
 export async function PUT(
   request: NextRequest,
-  { params }: { params: { id: string } }
+  context: { params: Promise<{ id: string }> }
 ) {
   try {
+    const params = await context.params
     const body = await request.json()
     const { userId, userRole } = body // In real app, get from JWT token
 
@@ -186,7 +188,7 @@ export async function PUT(
       message: 'Profile updated successfully'
     })
 
-  } catch (error) {
+  } catch (error: unknown) {
     console.error('Update user profile error:', error)
     return NextResponse.json(
       { error: 'Internal server error' },
@@ -198,9 +200,10 @@ export async function PUT(
 // DELETE /api/users/[id] - Delete user account
 export async function DELETE(
   request: NextRequest,
-  { params }: { params: { id: string } }
+  context: { params: Promise<{ id: string }> }
 ) {
   try {
+    const params = await context.params
     const body = await request.json()
     const { userId, userRole } = body // In real app, get from JWT token
 
@@ -244,7 +247,7 @@ export async function DELETE(
       message: 'User account deleted successfully'
     })
 
-  } catch (error) {
+  } catch (error: unknown) {
     console.error('Delete user error:', error)
     return NextResponse.json(
       { error: 'Internal server error' },

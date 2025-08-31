@@ -10,9 +10,10 @@ const createCommentSchema = z.object({
 // GET /api/community/[id]/comments - Get comments for a post
 export async function GET(
   request: NextRequest,
-  { params }: { params: { id: string } }
+  context: { params: Promise<{ id: string }> }
 ) {
   try {
+    const params = await context.params
     const { searchParams } = new URL(request.url)
     const page = parseInt(searchParams.get('page') || '1')
     const limit = parseInt(searchParams.get('limit') || '20')
@@ -78,7 +79,7 @@ export async function GET(
       }
     })
 
-  } catch (error) {
+  } catch (error: unknown) {
     console.error('Get post comments error:', error)
     return NextResponse.json(
       { error: 'Internal server error' },
@@ -90,9 +91,10 @@ export async function GET(
 // POST /api/community/[id]/comments - Add comment to post
 export async function POST(
   request: NextRequest,
-  { params }: { params: { id: string } }
+  context: { params: Promise<{ id: string }> }
 ) {
   try {
+    const params = await context.params
     const body = await request.json()
     const { userId } = body // In real app, get from JWT token
 
@@ -187,7 +189,7 @@ export async function POST(
       message: 'Comment added successfully'
     }, { status: 201 })
 
-  } catch (error) {
+  } catch (error: unknown) {
     console.error('Create comment error:', error)
     return NextResponse.json(
       { error: 'Internal server error' },

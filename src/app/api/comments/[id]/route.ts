@@ -9,9 +9,10 @@ const updateCommentSchema = z.object({
 // GET /api/comments/[id] - Get specific comment
 export async function GET(
   request: NextRequest,
-  { params }: { params: { id: string } }
+  context: { params: Promise<{ id: string }> }
 ) {
   try {
+    const params = await context.params
     const comment = await prisma.postComment.findUnique({
       where: { id: params.id },
       include: {
@@ -66,7 +67,7 @@ export async function GET(
       comment
     })
 
-  } catch (error) {
+  } catch (error: unknown) {
     console.error('Get comment error:', error)
     return NextResponse.json(
       { error: 'Internal server error' },
@@ -78,8 +79,9 @@ export async function GET(
 // PUT /api/comments/[id] - Update comment
 export async function PUT(
   request: NextRequest,
-  { params }: { params: { id: string } }
+  context: { params: Promise<{ id: string }> }
 ) {
+  const params = await context.params
   try {
     const body = await request.json()
     const { userId, userRole } = body // In real app, get from JWT token
@@ -155,7 +157,7 @@ export async function PUT(
       message: 'Comment updated successfully'
     })
 
-  } catch (error) {
+  } catch (error: unknown) {
     console.error('Update comment error:', error)
     return NextResponse.json(
       { error: 'Internal server error' },
@@ -167,8 +169,9 @@ export async function PUT(
 // DELETE /api/comments/[id] - Delete comment
 export async function DELETE(
   request: NextRequest,
-  { params }: { params: { id: string } }
+  context: { params: Promise<{ id: string }> }
 ) {
+  const params = await context.params
   try {
     const body = await request.json()
     const { userId, userRole } = body // In real app, get from JWT token
@@ -224,7 +227,7 @@ export async function DELETE(
       message: 'Comment deleted successfully'
     })
 
-  } catch (error) {
+  } catch (error: unknown) {
     console.error('Delete comment error:', error)
     return NextResponse.json(
       { error: 'Internal server error' },

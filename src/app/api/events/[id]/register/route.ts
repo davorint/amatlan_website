@@ -4,9 +4,10 @@ import { prisma } from '@/lib/prisma'
 // POST /api/events/[id]/register - Register for event
 export async function POST(
   request: NextRequest,
-  { params }: { params: { id: string } }
+  context: { params: Promise<{ id: string }> }
 ) {
   try {
+    const params = await context.params
     const body = await request.json()
     const { userId } = body // In real app, get from JWT token
 
@@ -150,7 +151,7 @@ export async function POST(
       message: 'Successfully registered for event'
     }, { status: 201 })
 
-  } catch (error) {
+  } catch (error: unknown) {
     console.error('Event registration error:', error)
     return NextResponse.json(
       { error: 'Internal server error' },
@@ -162,7 +163,7 @@ export async function POST(
 // DELETE /api/events/[id]/register - Unregister from event
 export async function DELETE(
   request: NextRequest,
-  { params }: { params: { id: string } }
+  context: { params: Promise<{ id: string }> }
 ) {
   try {
     const body = await request.json()
@@ -217,7 +218,7 @@ export async function DELETE(
       message: 'Successfully unregistered from event'
     })
 
-  } catch (error) {
+  } catch (error: unknown) {
     console.error('Event unregistration error:', error)
     return NextResponse.json(
       { error: 'Internal server error' },

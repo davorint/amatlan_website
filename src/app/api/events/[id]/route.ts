@@ -26,9 +26,10 @@ const updateEventSchema = z.object({
 // GET /api/events/[id] - Get specific event
 export async function GET(
   request: NextRequest,
-  { params }: { params: { id: string } }
+  context: { params: Promise<{ id: string }> }
 ) {
   try {
+    const params = await context.params
     const event = await prisma.event.findUnique({
       where: { id: params.id },
       include: {
@@ -68,7 +69,7 @@ export async function GET(
       event
     })
 
-  } catch (error) {
+  } catch (error: unknown) {
     console.error('Get event error:', error)
     return NextResponse.json(
       { error: 'Internal server error' },
@@ -80,9 +81,10 @@ export async function GET(
 // PUT /api/events/[id] - Update event
 export async function PUT(
   request: NextRequest,
-  { params }: { params: { id: string } }
+  context: { params: Promise<{ id: string }> }
 ) {
   try {
+    const params = await context.params
     const body = await request.json()
     const { userId, userRole } = body // In real app, get from JWT token
 
@@ -182,7 +184,7 @@ export async function PUT(
       message: 'Event updated successfully'
     })
 
-  } catch (error) {
+  } catch (error: unknown) {
     console.error('Update event error:', error)
     return NextResponse.json(
       { error: 'Internal server error' },
@@ -194,9 +196,10 @@ export async function PUT(
 // DELETE /api/events/[id] - Soft delete event
 export async function DELETE(
   request: NextRequest,
-  { params }: { params: { id: string } }
+  context: { params: Promise<{ id: string }> }
 ) {
   try {
+    const params = await context.params
     const body = await request.json()
     const { userId, userRole } = body // In real app, get from JWT token
 
@@ -240,7 +243,7 @@ export async function DELETE(
       message: 'Event deleted successfully'
     })
 
-  } catch (error) {
+  } catch (error: unknown) {
     console.error('Delete event error:', error)
     return NextResponse.json(
       { error: 'Internal server error' },

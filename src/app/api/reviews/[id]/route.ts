@@ -12,9 +12,10 @@ const updateReviewSchema = z.object({
 // GET /api/reviews/[id] - Get specific review
 export async function GET(
   request: NextRequest,
-  { params }: { params: { id: string } }
+  context: { params: Promise<{ id: string }> }
 ) {
   try {
+    const params = await context.params
     const review = await prisma.review.findUnique({
       where: { id: params.id },
       include: {
@@ -47,7 +48,7 @@ export async function GET(
       review
     })
 
-  } catch (error) {
+  } catch (error: unknown) {
     console.error('Get review error:', error)
     return NextResponse.json(
       { error: 'Internal server error' },
@@ -59,9 +60,10 @@ export async function GET(
 // PUT /api/reviews/[id] - Update review
 export async function PUT(
   request: NextRequest,
-  { params }: { params: { id: string } }
+  context: { params: Promise<{ id: string }> }
 ) {
   try {
+    const params = await context.params
     const body = await request.json()
     const { userId } = body // In real app, get from JWT token
 
@@ -133,7 +135,7 @@ export async function PUT(
       message: 'Review updated successfully'
     })
 
-  } catch (error) {
+  } catch (error: unknown) {
     console.error('Update review error:', error)
     return NextResponse.json(
       { error: 'Internal server error' },
@@ -145,9 +147,10 @@ export async function PUT(
 // DELETE /api/reviews/[id] - Delete review
 export async function DELETE(
   request: NextRequest,
-  { params }: { params: { id: string } }
+  context: { params: Promise<{ id: string }> }
 ) {
   try {
+    const params = await context.params
     const body = await request.json()
     const { userId } = body // In real app, get from JWT token
 
@@ -187,7 +190,7 @@ export async function DELETE(
       message: 'Review deleted successfully'
     })
 
-  } catch (error) {
+  } catch (error: unknown) {
     console.error('Delete review error:', error)
     return NextResponse.json(
       { error: 'Internal server error' },

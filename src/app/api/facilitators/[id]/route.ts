@@ -19,9 +19,10 @@ const updateFacilitatorSchema = z.object({
 // GET /api/facilitators/[id] - Get facilitator profile
 export async function GET(
   request: NextRequest,
-  { params }: { params: { id: string } }
+  context: { params: Promise<{ id: string }> }
 ) {
   try {
+    const params = await context.params
     const facilitator = await prisma.facilitator.findUnique({
       where: { id: params.id },
       include: {
@@ -105,7 +106,7 @@ export async function GET(
       facilitator: facilitatorWithStats
     })
 
-  } catch (error) {
+  } catch (error: unknown) {
     console.error('Get facilitator profile error:', error)
     return NextResponse.json(
       { error: 'Internal server error' },
@@ -117,9 +118,10 @@ export async function GET(
 // PUT /api/facilitators/[id] - Update facilitator profile
 export async function PUT(
   request: NextRequest,
-  { params }: { params: { id: string } }
+  context: { params: Promise<{ id: string }> }
 ) {
   try {
+    const params = await context.params
     const body = await request.json()
     const { userId, userRole } = body // In real app, get from JWT token
 
@@ -203,7 +205,7 @@ export async function PUT(
       message: 'Facilitator profile updated successfully'
     })
 
-  } catch (error) {
+  } catch (error: unknown) {
     console.error('Update facilitator profile error:', error)
     return NextResponse.json(
       { error: 'Internal server error' },
@@ -215,9 +217,10 @@ export async function PUT(
 // DELETE /api/facilitators/[id] - Delete facilitator profile
 export async function DELETE(
   request: NextRequest,
-  { params }: { params: { id: string } }
+  context: { params: Promise<{ id: string }> }
 ) {
   try {
+    const params = await context.params
     const body = await request.json()
     const { userId, userRole } = body // In real app, get from JWT token
 
@@ -293,7 +296,7 @@ export async function DELETE(
       message: 'Facilitator profile deleted successfully'
     })
 
-  } catch (error) {
+  } catch (error: unknown) {
     console.error('Delete facilitator error:', error)
     return NextResponse.json(
       { error: 'Internal server error' },

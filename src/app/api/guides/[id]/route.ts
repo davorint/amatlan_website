@@ -20,9 +20,10 @@ const updateGuideSchema = z.object({
 // GET /api/guides/[id] - Get specific guide
 export async function GET(
   request: NextRequest,
-  { params }: { params: { id: string } }
+  context: { params: Promise<{ id: string }> }
 ) {
   try {
+    const params = await context.params
     const guide = await prisma.guide.findUnique({
       where: { id: params.id }
     })
@@ -41,7 +42,7 @@ export async function GET(
       guide
     })
 
-  } catch (error) {
+  } catch (error: unknown) {
     console.error('Get guide error:', error)
     return NextResponse.json(
       { error: 'Internal server error' },
@@ -53,9 +54,10 @@ export async function GET(
 // PUT /api/guides/[id] - Update guide
 export async function PUT(
   request: NextRequest,
-  { params }: { params: { id: string } }
+  context: { params: Promise<{ id: string }> }
 ) {
   try {
+    const params = await context.params
     const body = await request.json()
     const { userId, userRole } = body // In real app, get from JWT token
 
@@ -132,7 +134,7 @@ export async function PUT(
       message: 'Guide updated successfully'
     })
 
-  } catch (error) {
+  } catch (error: unknown) {
     console.error('Update guide error:', error)
     return NextResponse.json(
       { error: 'Internal server error' },
@@ -144,9 +146,10 @@ export async function PUT(
 // DELETE /api/guides/[id] - Soft delete guide
 export async function DELETE(
   request: NextRequest,
-  { params }: { params: { id: string } }
+  context: { params: Promise<{ id: string }> }
 ) {
   try {
+    const params = await context.params
     const body = await request.json()
     const { userId, userRole } = body // In real app, get from JWT token
 
@@ -191,7 +194,7 @@ export async function DELETE(
       message: 'Guide deleted successfully'
     })
 
-  } catch (error) {
+  } catch (error: unknown) {
     console.error('Delete guide error:', error)
     return NextResponse.json(
       { error: 'Internal server error' },
